@@ -15,7 +15,7 @@ type Response = {
 };
 
 function App() {
-  const [data, setData] = useState<Response | null>(null);
+  const [data, setData] = useState<Job[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,9 +29,7 @@ function App() {
 
       const json: Response = await response.json();
 
-      setData({
-        results: json.results,
-      });
+      setData(json.results);
     };
 
     fetchData();
@@ -46,23 +44,23 @@ function App() {
       <header className="App-header">
         <h1>Adzuna API Jobs</h1>
       </header>
-        <ul>
-          {data.results.map((job) => (
-            <li key={job.id} className="mt-4">
-              <h2 className="font-bold">{job.title}</h2>
-              <p>{job.company.display_name}</p>
-              <p>{job.location.display_name}</p>
-              <p>{job.description}</p>
-              <a
-                href={job.redirect_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Job
-              </a>
-            </li>
-          ))}
-        </ul>
+      <ul>
+        {data.map((job) => (
+          <li key={job.id} className="mt-4">
+            <h2 className="font-bold">{job.title}</h2>
+            <p>{job.company.display_name}</p>
+            <p>{job.location.display_name}</p>
+            <p>{job.description}</p>
+            <a
+              href={job.redirect_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Job
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 
