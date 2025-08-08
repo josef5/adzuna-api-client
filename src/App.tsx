@@ -15,10 +15,16 @@ type Response = {
 };
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<Job[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
       const response = await fetch(
         "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=276f06d5&app_key=4d8ad3f833efde7607b09893735b52c7&results_per_page=500&what=frontend%20developer&where=london&content-type=application/json"
       );
@@ -30,6 +36,15 @@ function App() {
       const json: Response = await response.json();
 
       setData(json.results);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError("An unknown error occurred");
+        }
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
@@ -37,6 +52,14 @@ function App() {
 
   if (!data) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500">Error: {error}</div>;
+  }
+
+  if (!data) {
+    return <div className="text-gray-500">No data available</div>;
   }
 
   return (
