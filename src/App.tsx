@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 type Job = {
   id: string;
@@ -8,6 +9,8 @@ type Job = {
   company: { display_name: string };
   location: { display_name: string };
   description: string;
+  created: string;
+  contract_type?: string;
 };
 
 type Response = {
@@ -18,6 +21,16 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<Job[] | null>(null);
+  const [newJobs, setNewJobs] = useState<Job[]>([]);
+  const [archivedJobs, setArchivedJobs] = useState<Job[]>([]);
+  const [archivedIds, setArchivedIds] = useLocalStorage<string[]>(
+    "archivedIds",
+    []
+  );
+  const [displayJobs, setDisplayJobs] = useState<Job[]>([]);
+  const [tab, setTab] = useState<"new" | "archived" | "saved" | "applied">(
+    "new"
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,17 +38,17 @@ function App() {
       setError(null);
 
       try {
-      const response = await fetch(
-        "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=276f06d5&app_key=4d8ad3f833efde7607b09893735b52c7&results_per_page=500&what=frontend%20developer&where=london&content-type=application/json"
-      );
+        const response = await fetch(
+          "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=276f06d5&app_key=4d8ad3f833efde7607b09893735b52c7&results_per_page=100&what=frontend%20developer&where=london&sort_by=date&content-type=application/json"
+        );
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
 
-      const json: Response = await response.json();
+        const json: Response = await response.json();
 
-      setData(json.results);
+        setData(json.results);
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
@@ -50,7 +63,22 @@ function App() {
     fetchData();
   }, []);
 
-  if (!data) {
+  useEffect(() => {
+    if (data) {
+      setNewJobs(data.filter((job) => !archivedIds.includes(job.id)));
+      setArchivedJobs(data.filter((job) => archivedIds.includes(job.id)));
+    }
+  }, [data, archivedIds]);
+
+  useEffect(() => {
+    if (tab === "new") {
+      setDisplayJobs(newJobs);
+    } else {
+      setDisplayJobs(archivedJobs);
+    }
+  }, [tab, newJobs, archivedJobs]);
+
+  if (loading) {
     return <div>Loading...</div>;
   }
 
@@ -67,20 +95,53 @@ function App() {
       <header className="App-header">
         <h1>Adzuna API Jobs</h1>
       </header>
+      <div className="flex gap-4 mt-4" aria-label="Job Tabs">
+        <button
+          className={`${
+            tab === "new" ? "text-white" : "text-gray-400"
+          } cursor-pointer`}
+          onClick={() => setTab("new")}
+        >
+          New
+        </button>
+        <button
+          className={`${
+            tab === "archived" ? "text-white" : "text-gray-400"
+          } cursor-pointer`}
+          onClick={() => setTab("archived")}
+        >
+          Archived
+        </button>
+      </div>
       <ul>
-        {data.map((job) => (
+        {displayJobs.map((job) => (
           <li key={job.id} className="mt-4">
             <h2 className="font-bold">{job.title}</h2>
             <p>{job.company.display_name}</p>
             <p>{job.location.display_name}</p>
+            <p>{new Date(job.created).toLocaleDateString()}</p>
+            {job.contract_type && <p>Contract: {job.contract_type}</p>}
             <p>{job.description}</p>
             <a
               href={job.redirect_url}
               target="_blank"
               rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
             >
               View Job
             </a>
+            <button
+              className="ml-4 text-gray-500 cursor-pointer"
+              onClick={() => {
+                if (tab === "new") {
+                  setArchivedIds((prev) => [...prev, job.id]);
+                } else {
+                  setArchivedIds((prev) => prev.filter((id) => id !== job.id));
+                }
+              }}
+            >
+              {tab === "new" ? "Archive" : "Unarchive"}
+            </button>
           </li>
         ))}
       </ul>
