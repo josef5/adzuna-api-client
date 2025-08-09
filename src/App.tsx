@@ -113,6 +113,7 @@ function App() {
           Archived
         </button>
       </div>
+      <hr className="my-1 border-gray-600" />
       <ul>
         {displayJobs.map((job) => (
           <li key={job.id} className="mt-4">
