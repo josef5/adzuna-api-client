@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import useLocalStorage from "./hooks/useLocalStorage";
+import { useStore } from "./store/useStore";
 import type { Job } from "./types";
 
 type Response = {
@@ -10,6 +11,7 @@ type Response = {
 function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const setJobs = useStore((state) => state.setJobs);
   const [data, setData] = useState<Job[] | null>(null);
   const [newJobs, setNewJobs] = useState<Job[]>([]);
   const [archivedJobs, setArchivedJobs] = useState<Job[]>([]);
@@ -21,6 +23,8 @@ function App() {
   const [tab, setTab] = useState<"new" | "archived" | "saved" | "applied">(
     "new"
   );
+  const setTabStore = useStore((state) => state.setTab);
+  const displayJobsStore = useStore((state) => state.displayJobs);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +43,7 @@ function App() {
         const json: Response = await response.json();
 
         setData(json.results);
+        setJobs(json.results);
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
@@ -51,7 +56,7 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [setJobs]);
 
   useEffect(() => {
     if (data) {
@@ -90,22 +95,38 @@ function App() {
           className={`${
             tab === "new" ? "text-white" : "text-gray-400"
           } cursor-pointer`}
-          onClick={() => setTab("new")}
+          onClick={() => setTabStore("new")}
         >
           New
         </button>
         <button
           className={`${
+            tab === "saved" ? "text-white" : "text-gray-400"
+          } cursor-pointer`}
+          onClick={() => setTabStore("saved")}
+        >
+          Saved
+        </button>
+        <button
+          className={`${
+            tab === "applied" ? "text-white" : "text-gray-400"
+          } cursor-pointer`}
+          onClick={() => setTabStore("applied")}
+        >
+          Applied
+        </button>
+        <button
+          className={`${
             tab === "archived" ? "text-white" : "text-gray-400"
           } cursor-pointer`}
-          onClick={() => setTab("archived")}
+          onClick={() => setTabStore("archived")}
         >
           Archived
         </button>
       </div>
       <hr className="my-1 border-gray-600" />
       <ul>
-        {displayJobs.map((job) => (
+        {displayJobsStore.map((job) => (
           <li key={job.id} className="mt-4">
             <h2 className="font-bold">{job.title}</h2>
             <p>{job.company.display_name}</p>
