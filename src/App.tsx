@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import useLocalStorage from "./hooks/useLocalStorage";
-
-type Job = {
-  id: string;
-  title: string;
-  redirect_url: string;
-  company: { display_name: string };
-  location: { display_name: string };
-  description: string;
-  created: string;
-  contract_type?: string;
-};
+import type { Job } from "./types";
 
 type Response = {
   results: Job[];
