@@ -26,9 +26,9 @@ interface Store {
 }
 
 export const useStore = create<Store>((set, get) => ({
-  savedIds: [],
-  appliedIds: [],
-  archivedIds: [],
+  savedIds: JSON.parse(localStorage.getItem("savedIds") || "[]"),
+  appliedIds: JSON.parse(localStorage.getItem("appliedIds") || "[]"),
+  archivedIds: JSON.parse(localStorage.getItem("archivedIds") || "[]"),
 
   newJobs: [],
   savedJobs: [],
@@ -52,7 +52,17 @@ export const useStore = create<Store>((set, get) => ({
     const appliedJobs = jobs.filter((job) => appliedIds.includes(job.id));
     const archivedJobs = jobs.filter((job) => archivedIds.includes(job.id));
 
-    set({ newJobs, savedJobs, appliedJobs, archivedJobs });
+    set({
+      newJobs,
+      savedJobs,
+      appliedJobs,
+      archivedJobs,
+      displayJobs: newJobs,
+    });
+
+    localStorage.setItem("savedIds", JSON.stringify(savedIds));
+    localStorage.setItem("appliedIds", JSON.stringify(appliedIds));
+    localStorage.setItem("archivedIds", JSON.stringify(archivedIds));
   },
 
   setTab: (tab) => {
