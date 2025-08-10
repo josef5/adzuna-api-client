@@ -20,6 +20,7 @@ interface Store {
   setArchivedIds: (ids: string[]) => void;
 
   setJobs: (jobs: Job[]) => void;
+  moveId: (type: Tab, id: string) => void;
 
   tab: Tab;
   setTab: (tab: Tab) => void;
@@ -89,5 +90,51 @@ export const useStore = create<Store>((set, get) => ({
     }
 
     set({ tab, displayJobs });
+  },
+
+  moveId(type: Tab, id: string) {
+    const {
+      savedIds,
+      appliedIds,
+      archivedIds,
+      setJobs,
+      newJobs,
+      savedJobs,
+      appliedJobs,
+      archivedJobs,
+    } = get();
+
+    // Remove the ID from all lists
+    if (savedIds.includes(id)) {
+      set({ savedIds: savedIds.filter((savedId) => savedId !== id) });
+    }
+
+    if (appliedIds.includes(id)) {
+      set({ appliedIds: appliedIds.filter((appliedId) => appliedId !== id) });
+    }
+
+    if (archivedIds.includes(id)) {
+      console.log("Removing archived ID:", id);
+      set({
+        archivedIds: archivedIds.filter((archivedId) => archivedId !== id),
+      });
+    }
+
+    // Add the ID to the specified list
+    switch (type) {
+      case "saved":
+        set({ savedIds: [...savedIds, id] });
+        break;
+      case "applied":
+        set({ appliedIds: [...appliedIds, id] });
+        break;
+      case "archived":
+        set({ archivedIds: [...archivedIds, id] });
+        break;
+      default:
+        break;
+    }
+
+    setJobs([...newJobs, ...savedJobs, ...appliedJobs, ...archivedJobs]);
   },
 }));
