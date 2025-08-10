@@ -13,8 +13,8 @@ function App() {
   const setJobs = useStore((state) => state.setJobs);
   const tab = useStore((state) => state.tab);
   const moveId = useStore((state) => state.moveId);
-  const setTabStore = useStore((state) => state.setTab);
-  const displayJobsStore = useStore((state) => state.displayJobs);
+  const setTab = useStore((state) => state.setTab);
+  const displayJobs = useStore((state) => state.displayJobs);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +65,7 @@ function App() {
           className={`${
             tab === "new" ? "text-white" : "text-gray-400"
           } cursor-pointer`}
-          onClick={() => setTabStore("new")}
+          onClick={() => setTab("new")}
         >
           New
         </button>
@@ -73,7 +73,7 @@ function App() {
           className={`${
             tab === "saved" ? "text-white" : "text-gray-400"
           } cursor-pointer`}
-          onClick={() => setTabStore("saved")}
+          onClick={() => setTab("saved")}
         >
           Saved
         </button>
@@ -81,7 +81,7 @@ function App() {
           className={`${
             tab === "applied" ? "text-white" : "text-gray-400"
           } cursor-pointer`}
-          onClick={() => setTabStore("applied")}
+          onClick={() => setTab("applied")}
         >
           Applied
         </button>
@@ -89,14 +89,14 @@ function App() {
           className={`${
             tab === "archived" ? "text-white" : "text-gray-400"
           } cursor-pointer`}
-          onClick={() => setTabStore("archived")}
+          onClick={() => setTab("archived")}
         >
           Archived
         </button>
       </div>
       <hr className="my-1 border-gray-600" />
       <ul>
-        {displayJobsStore.map((job) => (
+        {displayJobs.map((job) => (
           <li key={job.id} className="mt-4">
             <h2 className="font-bold">{job.title}</h2>
             <p>{job.company.display_name}</p>
