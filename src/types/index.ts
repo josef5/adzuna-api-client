@@ -8,3 +8,5 @@ export type Job = {
   created: string;
   contract_type?: string;
 };
+
+export type Tab = "new" | "saved" | "applied" | "archived";

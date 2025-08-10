@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { useStore } from "./store/useStore";
-import type { Job } from "./types";
+import type { Job, Tab } from "./types";
 import mockResponse from "./tests/mock-response.json";
 
 type Response = {

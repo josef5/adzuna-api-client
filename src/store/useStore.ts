@@ -1,7 +1,5 @@
 import { create } from "zustand";
-import type { Job } from "../types";
-
-type Tab = "new" | "saved" | "applied" | "archived";
+import type { Job, Tab } from "../types";
 
 interface Store {
   savedIds: string[];
