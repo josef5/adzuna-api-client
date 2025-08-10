@@ -3,6 +3,7 @@ import "./App.css";
 import { useStore } from "./store/useStore";
 import type { Job, Tab } from "./types";
 import mockResponse from "./tests/mock-response.json";
+import { TAB_OPTIONS } from "./constants";
 
 type Response = {
   results: Job[];
@@ -16,36 +17,6 @@ function App() {
   const moveId = useStore((state) => state.moveId);
   const setTab = useStore((state) => state.setTab);
   const displayJobs = useStore((state) => state.displayJobs);
-
-  const TAB_OPTIONS: {
-    key: Tab;
-    tabLabel: string;
-    addButtonLabel?: string;
-    removeButtonLabel?: string;
-  }[] = [
-    {
-      key: "new",
-      tabLabel: "New",
-    },
-    {
-      key: "saved",
-      tabLabel: "Saved",
-      addButtonLabel: "Save",
-      removeButtonLabel: "Unsave",
-    },
-    {
-      key: "applied",
-      tabLabel: "Applied",
-      addButtonLabel: "Applied",
-      removeButtonLabel: "Unapplied",
-    },
-    {
-      key: "archived",
-      tabLabel: "Archived",
-      addButtonLabel: "Archive",
-      removeButtonLabel: "Unarchive",
-    },
-  ] as const;
 
   useEffect(() => {
     const fetchData = async () => {
