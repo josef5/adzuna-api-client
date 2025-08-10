@@ -1,0 +1,114 @@
+{
+  "mean": 1,
+  "count": 10,
+  "results": [
+    {
+      "title": "Job Title Example 1",
+      "contract_type": "contract",
+      "salary_max": 12345,
+      "redirect_url": "https://www.adzuna.co.uk/jobs",
+      "adref": "abc123",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 12345,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_is_predicted": "1",
+      "id": "100000001",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "created": "2025-01-01T10:00:00Z",
+      "company": {
+        "display_name": "Awesome Company",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    },
+    {
+      "title": "Job Title Example 2",
+      "contract_type": "permanent",
+      "salary_max": 12345,
+      "redirect_url": "https://www.adzuna.co.uk/jobs",
+      "adref": "abc123",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 12345,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_is_predicted": "1",
+      "id": "100000002",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "created": "2025-01-01T09:00:00Z",
+      "company": {
+        "display_name": "Awesome Company",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    },
+    {
+      "title": "Job Title Example 3",
+      "salary_max": 12345,
+      "redirect_url": "https://www.adzuna.co.uk/jobs",
+      "adref": "abc123",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 12345,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_is_predicted": "1",
+      "id": "100000003",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "created": "2025-01-01T08:00:00Z",
+      "company": {
+        "display_name": "Awesome Company",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    },
+    {
+      "title": "Job Title Example 4",
+      "contract_type": "contract",
+      "salary_max": 12345,
+      "redirect_url": "https://www.adzuna.co.uk/jobs",
+      "adref": "abc123",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 12345,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_is_predicted": "1",
+      "id": "100000004",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "created": "2025-01-01T07:00:00Z",
+      "company": {
+        "display_name": "Awesome Company",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    }
+  ],
+  "__CLASS__": "Adzuna::API::Response::JobSearchResults"
+}

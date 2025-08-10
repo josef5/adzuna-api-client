@@ -1,0 +1,1386 @@
+{
+  "mean": 79855.24,
+  "count": 173,
+  "results": [
+    {
+      "title": "Senior Project Manager [Experience & Engineering]",
+      "contract_type": "contract",
+      "salary_max": 44493.92,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5346670339?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0NjY3MDMzOSIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.lJVT8Fv-JLwSIDLvU2lFRNB7mJvmvoo2HtUNU8kOSfw",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 44493.92,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_is_predicted": "1",
+      "id": "5346670339",
+      "description": "Senior Project Manager Dublin, London, Manchester, hybrid This role is within Experience & Engineering in Ireland. We combine our skills in developing future-ready technical solutions with our expertise in creating beautiful designs to deliver exceptional and engaging digital experiences that build lasting relationships with our clients. JOB PURPOSE As a Senior Project Manager, you will work as part of an multidisciplinary team that delivers projects covering all aspects of digital, including U…",
+      "created": "2025-08-10T11:13:04Z",
+      "company": {
+        "display_name": "Dept",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    },
+    {
+      "created": "2025-08-10T11:12:33Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Dojo"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "description": "The Role As a Senior Software Engineer in the embedded finance team you actively contribute to Agile ceremonies such as daily stand-ups, sprint planning, retrospectives, and backlog grooming. You will participate in technical discussions and architectural decisions, bringing forward your ideas and collaborating with the to to shape effective solutions. You will work on greenfield initiatives, using cutting edge technology with the team that is responsible for all funding related projects. The E…",
+      "id": "5346670232",
+      "salary_is_predicted": "1",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5346670232?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQ2NjcwMjMyIn0.lDRZSEYxvG5l1Y2y3HqYrTPHnFSBC7xQONV1DzSxnv0",
+      "salary_min": 59168.01,
+      "title": "Senior Software Engineer (.NET)",
+      "salary_max": 59168.01
+    },
+    {
+      "salary_max": 85000,
+      "longitude": -0.103815,
+      "contract_time": "full_time",
+      "salary_min": 70000,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5346491974?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0NjQ5MTk3NCIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.X41e4cv9HO1flaUfqgHRyTXY5xrWjVJ4QiJIuqSsM1s",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London", "Central London", "Farringdon"],
+        "display_name": "Farringdon, Central London"
+      },
+      "id": "5346491974",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "created": "2025-08-10T03:04:38Z",
+      "title": "C#/GUI Developer Role",
+      "salary_is_predicted": "0",
+      "description": "Salary: £70,000 - 85,000 per year Requirements: C#, GUI, Degree, WPF, html GUIS Responsibilities: C# /GUI Software Developer City £40-100,000annual bonus TRM International are pleased to be supporting a Financial trading company in London, who are seeking the skills of C# Developers who specialise in GUI visualisation development to join a growing team in a collaborative environment with colleagues from a solid science and programming background at all levels of experience with a focus on the .…",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "company": {
+        "display_name": "TRM International",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.523772
+    },
+    {
+      "description": "Salary: £50,000 - 65,000 per year Requirements: At least 4 years of Frontend Web Development Experience: have worked with React and modern web apps (bonus: Three.js, 3D rendering, SVG or webpack experience) Good communication skills: comfortable interacting with customers and working closely with our sales and support teams Knowledge of UI design and User Experience, working with our designers and users to provide a constantly great experience Happy interacting with APIs with a solid understand…",
+      "salary_is_predicted": "0",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "company": {
+        "display_name": "Automata",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.537788,
+      "title": "Front-End Developer",
+      "id": "5346491964",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "created": "2025-08-10T03:04:38Z",
+      "salary_max": 65000,
+      "longitude": -0.098921,
+      "contract_time": "full_time",
+      "salary_min": 50000,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0NjQ5MTk2NCIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.GSTY2LttihfA15_aPIxzqetKOK1WCzpUmBZ4DOelvrM",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5346491964?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Islington, North London",
+        "area": ["UK", "London", "North London", "Islington"]
+      }
+    },
+    {
+      "contract_type": "contract",
+      "title": "Frontend Developer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Quori"
+      },
+      "latitude": 51.515098,
+      "salary_is_predicted": "0",
+      "description": "Salary: £45,000 - 50,000 per year Requirements: Eligible to work in the UK 3 years’ experience with Angular Node and Cordova experience Git experience Excellent written and verbal communication skills. The successful candidate must have the ability to present technical findings, methodologies, and recommendations in a concise and easily actionable manner Responsibilities: About us You will be working closely with a team of like-minded individuals to shape and improve the existing infrastructure…",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "salary_min": 45000,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQ2NDkxOTkyIn0.M2sqjL39AqG5p093yoUNlHu7pZpkuuil3gzBVyk1Hq8",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5346491992?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London", "East London", "Whitechapel"],
+        "display_name": "Whitechapel, East London"
+      },
+      "salary_max": 50000,
+      "longitude": -0.073476,
+      "contract_time": "full_time",
+      "created": "2025-08-10T03:04:38Z",
+      "id": "5346491992",
+      "__CLASS__": "Adzuna::API::Response::Job"
+    },
+    {
+      "salary_max": 20000,
+      "contract_type": "permanent",
+      "contract_time": "full_time",
+      "title": "Full Stack Developer - Lead Developer Opportunity",
+      "salary_min": 17000,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQ1NDA5MDM2In0.ab9_1eptO1gPSe-jz8_hTqjs1uPZHjI_L_2IUI0bzlw",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5345409036?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "id": "5345409036",
+      "description": "The Opportunity Hub UK is an ambitious recruitment technology startup transforming how companies and candidates connect. We're building a cutting-edge platform that goes beyond traditional job boards, incorporating video profiles, AI-powered matching, and innovative search functionality. The Opportunity We're seeking a talented and ambitious Full Stack Developer to join us as our lead technical resource. This is a unique opportunity to take ownership of our platform's development and shape its …",
+      "salary_is_predicted": "0",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "company": {
+        "display_name": "The Opportunity Hub UK",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-09T13:38:54Z"
+    },
+    {
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5345266662?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQ1MjY2NjYyIn0.42Zwn23J19LkRcD8HsoxDJoYlgkGldn5TxCO_hTnADM",
+      "salary_min": 59363.46,
+      "title": "DeFi Engineer - DeFi",
+      "contract_time": "full_time",
+      "salary_max": 59363.46,
+      "created": "2025-08-09T11:16:40Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Superduper"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "id": "5345266662",
+      "salary_is_predicted": "1",
+      "description": "DeFi Engineer Who We Are We are a cutting-edge DeFi automation and social trading platform revolutionizing how users, builders, and protocols interact with crypto. By combining seamless automation, gamification, and social engagement, we empower traders to discover, execute, and share innovative trading strategies across multiple chains. With a focus on user-driven growth and simplified blockchain workflows, we are building the future of decentralized finance—where trading is smarter, faster, a…"
+    },
+    {
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQ1MTQ2ODY1In0.2HDWNUit3KLlQwAPBYhOHnlsv3OX5Dil15O92lTY2S8",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5345146865?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=AFBC393F4D69AD38E80F79178534D24AA3603FE3",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 66674.02,
+      "contract_time": "full_time",
+      "title": "Software Engineer III - Angular",
+      "salary_max": 66674.02,
+      "created": "2025-08-09T08:00:49Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "J.P. MORGAN-1"
+      },
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5345146865",
+      "description": "Job Description We have an exciting and rewarding opportunity for you to take your software engineering career to the next level. As a Software Engineer (Angular) at JPMorgan Chase within the Corporate Sector - Data Center Services team, you would be an integral part of an agile team that works to enhance, build, and deliver trusted market-leading technology products in a secure, stable, and scalable way. As a core technical contributor, you are responsible for conducting critical technology so…",
+      "salary_is_predicted": "1"
+    },
+    {
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Harnham - Data & Analytics Recruitment"
+      },
+      "created": "2025-08-08T22:35:42Z",
+      "id": "5344632317",
+      "description": "Full stack Engineer | AI Startup | Remote (One week per Month in Barcelona) Up to £180,000  Equity Want to help shape the future of AI infrastructure for data-rich industries like finance, healthcare, and advertising? I'm hiring for a Fullstack Engineer to join a cutting-edge AI startup that's developing the most advanced Large Tabular Model in the world. You'll work with a world-class team of AI researchers (ex-DeepMind, INRIA, École Polytechnique) to build the systems and interfaces that enab…",
+      "salary_is_predicted": "0",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_min": 100000,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5344632317?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=7F3085B747C6B10AD70F189F284A0272CFAE38FB",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQ0NjMyMzE3In0.evSgkZoiVobO7jtgH19tMpqFivCSaQQ9xmUP4t4aYMg",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "contract_type": "permanent",
+      "salary_max": 180000,
+      "title": "Senior Full Stack Engineer Python React",
+      "contract_time": "full_time"
+    },
+    {
+      "id": "5343662786",
+      "description": "Senior AI Developer £80,000  bonus  benefits London or Brighton Join a leading international eCommerce organization committed to driving innovation through AI. We are looking for a Senior Frontend Developer to lead the modernization of our core systems, utilizing React and JavaScript to enhance performance and efficiency. Your expertise will be key in transforming our technology stack and implementing AI-powered solutions. ?? About the Role: Play a pivotal role in transforming our technology st…",
+      "salary_is_predicted": "1",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "company": {
+        "display_name": "Arc IT Recruitment",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-08T13:07:25Z",
+      "contract_type": "permanent",
+      "salary_max": 88244.2,
+      "title": "Senior AI Developer",
+      "contract_time": "full_time",
+      "salary_min": 88244.2,
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5343662786?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=AFCAF6A758F15870673832D7A6785E22E3C1E714",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQzNjYyNzg2In0.pG458dWy1CRHwpQU2abpY1Vqvc8-rgtzK7Tqj3v6KxM"
+    },
+    {
+      "salary_min": 52450.36,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MzYxMDE4OCIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.HNVKDLQUCbuF-vjxcxzbnUbXTDOgKDo7X3GrtnVOzmY",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5343610188?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=4166F07D68C88F1734C87266714C95FA5C42C4EB",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_max": 52450.36,
+      "contract_time": "full_time",
+      "title": "Software Engineer, CI/CD",
+      "company": {
+        "display_name": "Vercel",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-08T12:42:29Z",
+      "description": "Vercel gives developers the tools and cloud infrastructure to build, scale, and secure a faster, more personalized web. As the team behind v0, Next.js, and AI SDK, Vercel helps customers like Ramp, Supreme, PayPal, and Under Armour build for the AI-native web. Our mission is to enable the world to ship the best products. That starts with creating a place where everyone can do their best work. Whether youre building on our platform, supporting our customers, or shaping our story: You can just sh…",
+      "id": "5343610188",
+      "salary_is_predicted": "1",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job"
+    },
+    {
+      "salary_min": 93000,
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQzNDk3MDYxIn0.NcT5QH3lVUzi3tInE1WctOdvMxgDyPnsISGcoiXeW2c",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5343497061?utm_medium=api&utm_source=276f06d5",
+      "salary_max": 139000,
+      "title": "Partner Marketing Manager, EMEA",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Vercel"
+      },
+      "created": "2025-08-08T11:23:51Z",
+      "id": "5343497061",
+      "salary_is_predicted": "0",
+      "description": "About Vercel: Vercel gives developers the tools and cloud infrastructure to build, scale, and secure a faster, more personalized web. As the team behind v0, Next.js, and AI SDK, Vercel helps customers like Ramp, Supreme, PayPal, and Under Armour build for the AI-native web. Our mission is to enable the world to ship the best products. That starts with creating a place where everyone can do their best work. Whether you're building on our platform, supporting our customers, or shaping our story: …",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "PR, Advertising & Marketing Jobs",
+        "tag": "pr-advertising-marketing-jobs"
+      }
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "Graduate Jobs",
+        "tag": "graduate-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "id": "5342283211",
+      "salary_is_predicted": "1",
+      "description": "Acre is rebuilding the UK’s £1.4 trillion mortgage market from the ground up, with a completely new, end-to-end management system for mortgages. Our platform cuts out the unnecessary admin, pain and friction from buying a home. We're covering the entire journey, from figuring out what you can borrow, to getting your keys. We're guided both by the voice of real home buyers and by our close relationships with brokers, lenders and insurers. Over the past year, mortgage submissions through our plat…",
+      "created": "2025-08-07T20:57:02Z",
+      "latitude": 51.503378,
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Acre Software"
+      },
+      "title": "Graduate Frontend Engineer",
+      "longitude": -0.139134,
+      "salary_max": 44105.67,
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQyMjgzMjExIn0.ZMiY1ufHGJEjVc5MzYZLtgbjmVF8WGujKYGBX8B0Zgs",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5342283211?utm_medium=api&utm_source=276f06d5",
+      "salary_min": 44105.67
+    },
+    {
+      "longitude": -0.093571,
+      "salary_max": 51308.69,
+      "title": "Senior Platform & Backend Engineer",
+      "salary_min": 51308.69,
+      "location": {
+        "area": ["UK", "London", "Central London", "Clerkenwell"],
+        "display_name": "Clerkenwell, Central London",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5342264870?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQyMjY0ODcwIn0.Scdf3xm1_6ui0S6FbBJKBdy44FUKnPYAn4THMHDhE7k",
+      "id": "5342264870",
+      "salary_is_predicted": "1",
+      "description": "Senior Platform & Backend Engineer About us Elder is a dynamic scale-up revolutionising the care industry by connecting older adults to self-employed carers through an innovative technology-driven introductory model. We are committed to using data-driven insights to continuously improve outcomes for our customers and carers. We are actively seeking a Senior Platform & Backend Engineer to scale, and optimise the services we offer customers and carers on our platform. If this is a mission that ex…",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "latitude": 51.528475,
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Elder"
+      },
+      "created": "2025-08-07T20:47:19Z"
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "description": "Our story Strada is a technology-enabled, people powered company committed to delivering world-class payroll, human capital management, and financial management solutions to organizations globally. With a team of more than 8,000 experts, Strada blends leading-edge technology with human ingenuity to help businesses across the globe design and deliver at scale. Supporting over 30 years to 1,400 customers in 33 countries, Strada partners with customers at every stage of their journey, to help driv…",
+      "id": "5341694963",
+      "salary_is_predicted": "1",
+      "created": "2025-08-07T11:31:54Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Northgate Information Solutions Holdings Limited"
+      },
+      "contract_time": "full_time",
+      "title": "Lead Backend Software Engineer (.net)",
+      "salary_max": 40781.89,
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "London, UK",
+        "area": ["UK", "London"]
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MTY5NDk2MyIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.0x0vjE-Sd7ZKJ3JpLKEEhmxKYgDeG4Qqxvni8Mab7-s",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5341694963?utm_medium=api&utm_source=276f06d5",
+      "salary_min": 40781.89
+    },
+    {
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQxNjkzNDI3In0.HGblx6eqCIGUslofMua-VZKcGbg3bBoyirMSgQCc3RA",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5341693427?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Shoreditch, East London",
+        "area": ["UK", "London", "East London", "Shoreditch"]
+      },
+      "salary_min": 55191.27,
+      "contract_time": "full_time",
+      "salary_max": 55191.27,
+      "longitude": -0.081497,
+      "created": "2025-08-07T11:28:50Z",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5341693427",
+      "title": "Frontend Engineer, Chordant",
+      "company": {
+        "display_name": "Interdigital Communications Inc",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.525221,
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "description": "About Chordant Chordant transforms citizen and business communities globally with solutions and services built on shared real-time information. We are passionate about technology innovation and a standards-based approach that stimulates thriving global ecosystems. Chordant solutions address fundamental Smart City challenges by exposing and sharing mobility related data across systems, organisations and geographical boundaries. We have created one of the largest Smart City deployments integratin…",
+      "salary_is_predicted": "1"
+    },
+    {
+      "salary_min": 95000,
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "Central London, London",
+        "area": ["UK", "London", "Central London"]
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MTQ2NjAyOCIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.mfFTlyA0yxzE_3WdqBorKQ2_dMRNtSZ1k45Y5ELyXcc",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5341466028?utm_medium=api&utm_source=276f06d5",
+      "longitude": -0.11126,
+      "salary_max": 95000,
+      "title": "Senior Software Engineer",
+      "latitude": 51.51985,
+      "company": {
+        "display_name": "Halian Technology Limited",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-07T08:04:01Z",
+      "id": "5341466028",
+      "salary_is_predicted": "0",
+      "description": "Join a leading payments company at the forefront of innovation in the financial services sector. They're on a mission to simplify payments and create seamless, secure transaction experiences for millions of users. With a focus on technology, agility, and product excellence, we offer an exciting environment where engineers are empowered to make real impact. Role Overview They're looking for a skilled and passionate Backend skills in Node.js . You will be part of a high-performing engineering tea…",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      }
+    },
+    {
+      "title": "Frontend Developer",
+      "contract_time": "full_time",
+      "salary_max": 66828.59,
+      "contract_type": "contract",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5341421595?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQxNDIxNTk1In0.na13zcmSK0oyBpl4ycZFWk4m7GIRBBh-NQhg6aAItt8",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 66828.59,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "description": "NEW CONTRACT FRONT-END DEVELOPER ROLE AVAILABLE - FULLY REMOTE (UK-BASED) UK-Based Candidates Only Outside IR35 3-Month Initial Contract | ⏱ Start ASAP | Likely Extension To apply, email: jordanna.ramsey@searchability.com THE OPPORTUNITY We're working with a London-based tech company on a new project build requiring a Front-End Developer with strong Vue expertise. This is a great chance to join a modern dev team building clean, scalable front-end applications. The role is Outside IR35 and fully…",
+      "id": "5341421595",
+      "salary_is_predicted": "1",
+      "created": "2025-08-07T06:39:35Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Searchability  Ltd"
+      }
+    },
+    {
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340936061?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwOTM2MDYxIn0.Q4cqb_06MVHNwmV-ewyHxkAb3Rvb-xxAuKRONv87CKI",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "London, UK",
+        "area": ["UK", "London"]
+      },
+      "salary_min": 75000,
+      "contract_time": "full_time",
+      "title": "AI/LLM Full Stack Developer",
+      "contract_type": "permanent",
+      "salary_max": 85000,
+      "created": "2025-08-06T23:35:46Z",
+      "company": {
+        "display_name": "Harnham - Data & Analytics Recruitment",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5340936061",
+      "salary_is_predicted": "0",
+      "description": "Role: AI/LLM Full Stack Engineer Location: London, Bristol, or Cambridge (Hybrid - 2-3 days per week in office) Salary: £70,000 - £85,000  Benefits A fast-growing innovation team is looking for a Full Stack Engineer to join their Generative AI product group. This role sits within a high-impact environment developing cutting-edge AI solutions for internal and external users. The team operates with a startup feel, embedded within a secure and well-resourced structure. You'll be joining a collabor…"
+    },
+    {
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5340926577?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=2F1C7AE0272AA573BAE0AA1D9D9A543618016DD4",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDkyNjU3NyIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.umoxnicQNVKU3ct7zJzj59kOY8ieVMQlq4y_7qfKBrU",
+      "location": {
+        "display_name": "Farringdon, Central London",
+        "area": ["UK", "London", "Central London", "Farringdon"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 60000,
+      "contract_time": "full_time",
+      "salary_max": 70000,
+      "longitude": -0.103815,
+      "created": "2025-08-06T23:30:00Z",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5340926577",
+      "title": "Full Stack Developer",
+      "company": {
+        "display_name": "Rise Technical Recruitment",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.523772,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "description": "Full Stack Developer London - Hybrid £60,000 - £70,000  Equity  Benefits This is an outstanding opportunity for a Full Stack Developer specialising in AWS, Node.js, and React to join an innovative fintech startup dedicated to transforming how individuals manage and utilise their pensions. This company is a fintech startup with a mission to empower individuals to invest and save their money in secure yet engaging ways. They are passionate about transforming how people interact with and manage th…",
+      "salary_is_predicted": "0"
+    },
+    {
+      "salary_min": 100000,
+      "location": {
+        "display_name": "The City, Central London",
+        "area": ["UK", "London", "Central London", "The City"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDczODU2MyIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.6XBtcUYCPfelG-T4uIxf7R7qg4CyRAuGoINh9FaEITc",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340738563?utm_medium=api&utm_source=276f06d5",
+      "salary_max": 100000,
+      "title": "Senior Frontend Engineer",
+      "company": {
+        "display_name": "Plexus Resource Solutions Ltd",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-06T22:05:29Z",
+      "id": "5340738563",
+      "salary_is_predicted": "0",
+      "description": "Senior Frontend Engineer DeFi Trading Platform Remote: (HQ: London) £100K - £140K Plexus is partnered with an established player in the DeFi space, backed by $4M in funding. This company is on a mission to democratize access to pre-public investing and reshape the financial system through inclusion and innovation. Theyre now looking for a Senior Frontend Engineer to lead the architecture and development of high-performance web applications. Youll play a key role in building next-gen DeFi produc…",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      }
+    },
+    {
+      "company": {
+        "display_name": "Plexus Resource Solutions Ltd",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-06T22:04:11Z",
+      "id": "5340722971",
+      "description": "Senior JavaScript Engineer Remote 80k - 110k Plexus has a great opportunity with a pioneering Web3 technology company is seeking a Senior JavaScript Engineer to help shape the future of decentralized applications. Operating at the intersection of blockchain infrastructure and user-focused design, this organisation is known for building innovative tools that simplify complex on-chain interactions. They are looking for a senior JavaScript engineer to join the team to help build amazing web experi…",
+      "salary_is_predicted": "0",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "salary_min": 100000,
+      "location": {
+        "display_name": "The City, Central London",
+        "area": ["UK", "London", "Central London", "The City"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340722971?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwNzIyOTcxIn0.ezEne0oBjomsW4wd1ELpFJBMPOO5ufOc1tTbg6K86X0",
+      "salary_max": 100000,
+      "title": "Senior JavaScript Engineer"
+    },
+    {
+      "id": "5340722921",
+      "description": "NEW CONTRACT FRONT-END DEVELOPER ROLE AVAILABLE - FULLY REMOTE (UK-BASED) ?? UK-Based Candidates Only ?? Outside IR35 ?? 3-Month Initial Contract | ? Start ASAP | ?? Likely Extension ?? To apply, email: THE OPPORTUNITY We're working with a London-based tech company on a new project build requiring a Front-End Developer with strong Vue expertise. This is a great chance to join a modern dev team building clean, scalable front-end applications. The role is Outside IR35 and fully remote (UK-based c…",
+      "salary_is_predicted": "1",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "company": {
+        "display_name": "Searchability  Ltd",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-06T22:04:11Z",
+      "salary_max": 67172.6,
+      "contract_type": "contract",
+      "title": "Frontend Developer",
+      "salary_min": 67172.6,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwNzIyOTIxIn0.Dc4ZcZxbFPAPPYMT7VrxpBuOTOrixs4uYTh2UmBLTSM",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340722921?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      }
+    },
+    {
+      "description": "Senior Backend Engineer Dapp Distribution pipeline Remote: (HQ: London) £80k - £110k Plexus is presenting a great opportunity with one of our clients within the Blockchain/web3 space. They are a leading Dapp distribution pipeline offering comprehensive NFT valuations and portfolio management, leading the way in data led, actionable industry reporting. Looking for a passionate, forward thinking Senior Backend Engineer, You will play a crucial role in integrating frontend elements with backend in…",
+      "id": "5340709930",
+      "salary_is_predicted": "0",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Plexus Resource Solutions Ltd"
+      },
+      "created": "2025-08-06T22:02:53Z",
+      "salary_max": 100000,
+      "title": "Senior Backend Engineer",
+      "salary_min": 100000,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340709930?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDcwOTkzMCIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.sVbxOAkerTHNLtNITS4SGJ8Yr7g-MfWBdEv3e9T0ccM",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "The City, Central London",
+        "area": ["UK", "London", "Central London", "The City"]
+      }
+    },
+    {
+      "created": "2025-08-06T22:00:52Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Rise Technical Recruitment Limited"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "id": "5340689902",
+      "salary_is_predicted": "0",
+      "description": "Full Stack Developer London - Hybrid £60,000 - £70,000  Equity  Benefits This is an outstanding opportunity for a Full Stack Developer specialising in AWS, Node.js, and React to join an innovative fintech startup dedicated to transforming how individuals manage and utilise their pensions. This company is a fintech startup with a mission to empower individuals to invest and save their money in secure yet engaging ways. They are passionate about transforming how people interact with and manage th…",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDY4OTkwMiIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.8H2uGEV8dH9auFflmSngUt3mS3SkVi9p722cGGmM_QI",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340689902?utm_medium=api&utm_source=276f06d5",
+      "salary_min": 70000,
+      "title": "Full Stack Developer",
+      "salary_max": 70000
+    },
+    {
+      "id": "5340558792",
+      "salary_is_predicted": "1",
+      "description": "Frontend React Developer Remote in UK Initial 6 month project emagine is a high-end professional services consultancy and solutions firm specialising in providing business and technology services to the financial services sector, we power progress, solve challenges and deliver real results through tailored high-end consulting services and solutions. We have created a culture of openness and integrity by building genuine and strong relationships and partnerships, enabling us to be uncompromising…",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Emagine Consulting"
+      },
+      "created": "2025-08-06T21:34:31Z",
+      "salary_max": 60715.55,
+      "contract_time": "full_time",
+      "title": "Frontend React Developer (m/f/d)",
+      "salary_min": 60715.55,
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwNTU4NzkyIn0.UXYR-7pQIYucI6Na17GFpOUji7Ubbox7igHFLOSRez8",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340558792?utm_medium=api&utm_source=276f06d5"
+    },
+    {
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5340549632?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=11D8B5C69808713DD798C078C792F405D0247770",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDU0OTYzMiIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.Eqng_QiDDCHAfX-B68DIEDEP1aI-ONcEHG-pzrFsDaE",
+      "salary_min": 100000,
+      "title": "Senior Frontend Engineer",
+      "contract_type": "permanent",
+      "salary_max": 100000,
+      "created": "2025-08-06T21:29:24Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Plexus Resource Solutions Ltd"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "id": "5340549632",
+      "salary_is_predicted": "0",
+      "description": "Senior Frontend Engineer DeFi Trading Platform Remote: (HQ: London) £100K - £140K Plexus is partnered with an established player in the DeFi space, backed by $4M in funding. This company is on a mission to democratize access to pre-public investing and reshape the financial system through inclusion and innovation. Theyre now looking for a Senior Frontend Engineer to lead the architecture and development of high-performance web applications. Youll play a key role in building next-gen DeFi produc…"
+    },
+    {
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwNTQ5NTQ3In0.ieqFmVkssBeMUHQcmqH6B-4WHAQQmo9puxZhkGxwAnk",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5340549547?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=25B91D3A7F86A1C5BDD3D3E885CF090F9134CFE0",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "salary_min": 95000,
+      "title": "Senior Software Engineer",
+      "contract_type": "permanent",
+      "salary_max": 95000,
+      "created": "2025-08-06T21:29:23Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Halian Technology Limited"
+      },
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "description": "Join a leading payments company at the forefront of innovation in the financial services sector. They're on a mission to simplify payments and create seamless, secure transaction experiences for millions of users. With a focus on technology, agility, and product excellence, we offer an exciting environment where engineers are empowered to make real impact. Role Overview They're looking for a skilled and passionate Backend skills in Node.js . You will be part of a high-performing engineering tea…",
+      "id": "5340549547",
+      "salary_is_predicted": "0"
+    },
+    {
+      "salary_max": 100000,
+      "contract_type": "permanent",
+      "title": "Senior Backend Engineer",
+      "salary_min": 100000,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5340549538?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=D7F0FFA1C57E8156B2039E11EF8E00DEDABC0E86",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwNTQ5NTM4In0.NEhyZffen3LJnZsEtYsoGfM3H6Ms5n0Le17CgZXSykA",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "description": "Senior Backend Engineer Dapp Distribution pipeline Remote: (HQ: London) £80k - £110k Plexus is presenting a great opportunity with one of our clients within the Blockchain/web3 space. They are a leading Dapp distribution pipeline offering comprehensive NFT valuations and portfolio management, leading the way in data led, actionable industry reporting. Looking for a passionate, forward thinking Senior Backend Engineer, You will play a crucial role in integrating frontend elements with backend in…",
+      "id": "5340549538",
+      "salary_is_predicted": "0",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Plexus Resource Solutions Ltd"
+      },
+      "created": "2025-08-06T21:29:23Z"
+    },
+    {
+      "created": "2025-08-06T21:29:22Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Plexus Resource Solutions Ltd"
+      },
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "description": "Senior JavaScript Engineer Remote 80k - 110k Plexus has a great opportunity with a pioneering Web3 technology company is seeking a Senior JavaScript Engineer to help shape the future of decentralized applications. Operating at the intersection of blockchain infrastructure and user-focused design, this organisation is known for building innovative tools that simplify complex on-chain interactions. They are looking for a senior JavaScript engineer to join the team to help build amazing web experi…",
+      "id": "5340549430",
+      "salary_is_predicted": "0",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5340549430?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=624F101983CB7D47059AEC63D71A5ADCED6D0105",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwNTQ5NDMwIn0.jDdQhTGJhfJziHNoM4U21RhPdrTgI9pU3HW3qTudov8",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "salary_min": 100000,
+      "title": "Senior JavaScript Engineer",
+      "salary_max": 100000,
+      "contract_type": "permanent"
+    },
+    {
+      "id": "5340129090",
+      "salary_is_predicted": "1",
+      "description": "A World-Changing CompanyPalantir builds the worldleading software for data-driven decisions and operations. By bringing the right data to the people who need it, our platforms empower our partners to develop lifesaving drugs, forecast supply chain disruptions, locate missing children, and more.Are you passionate about engineering quality, performance, and increasing the impact of engineers around you?Software Engineers at Palantir build software at scale to transform how organisations around th…",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "company": {
+        "display_name": "Palantir",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-06T18:35:03Z",
+      "salary_max": 54198,
+      "contract_type": "contract",
+      "title": "Software Engineer, Internship - Infrastructure",
+      "salary_min": 54198,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzQwMTI5MDkwIn0.q2mMpmRmn0tx9czQcKBVmd3Ahc8b7lp9QsW0HnKDO60",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340129090?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      }
+    },
+    {
+      "id": "5340129082",
+      "description": "A World-Changing CompanyPalantir builds the worldleading software for data-driven decisions and operations. By bringing the right data to the people who need it, our platforms empower our partners to develop lifesaving drugs, forecast supply chain disruptions, locate missing children, and more.Are you passionate about engineering quality, performance, and increasing the impact of engineers around you?Software Engineers at Palantir build software at scale to transform how organisations around th…",
+      "salary_is_predicted": "1",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Palantir"
+      },
+      "created": "2025-08-06T18:35:02Z",
+      "salary_max": 51933.31,
+      "title": "Software Engineer, New Grad - Infrastructure",
+      "salary_min": 51933.31,
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDEyOTA4MiIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.gHCBIzqvKQaSRqO_En0ZC4o--lZlWw7-e9_X0KsIJAU",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5340129082?utm_medium=api&utm_source=276f06d5"
+    },
+    {
+      "salary_min": 60000,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5340113457?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=BBB6FFAB463E6D42BCDCB4EA1516D481457B7513",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTM0MDExMzQ1NyIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.RTCIoR1h_YMaBaBo5WO0uOWNSIrQXb5--zHgVLMVq_k",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_max": 70000,
+      "contract_type": "permanent",
+      "title": "Full Stack Developer",
+      "contract_time": "full_time",
+      "company": {
+        "display_name": "Rise Technical Recruitment Limited",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-06T18:26:23Z",
+      "id": "5340113457",
+      "description": "Full Stack Developer London - Hybrid £60,000 - £70,000  Equity  Benefits This is an outstanding opportunity for a Full Stack Developer specialising in AWS, Node.js, and React to join an innovative fintech startup dedicated to transforming how individuals manage and utilise their pensions.This company is a fintech startup with a mission to empower individuals to invest and save their money in secure yet engaging ways. They are passionate about transforming how people interact with and manage the…",
+      "salary_is_predicted": "0",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job"
+    },
+    {
+      "created": "2025-08-04T10:22:13Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "GetGround"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "Engineering Jobs",
+        "tag": "engineering-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "id": "5336934368",
+      "description": "We're a VC backed, disruptive technology business with a purpose to make the world fairer and more productive. We are doing this by making assets more transparent, trustworthy and accessible - starting with real estate. Incomes have stagnated and we believe by creating greater access to high value assets like real estate we believe we can be part of solving some of the wealth inequality. Our investment platform is focussed on one of the largest asset classes in the world - property. We are gain…",
+      "salary_is_predicted": "1",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzM2OTM0MzY4In0.Nu17Q_cwlOEJC9zbdHTfLWu3u6D0fcqqyn-CEV-ioBI",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5336934368?utm_medium=api&utm_source=276f06d5",
+      "salary_min": 61149.92,
+      "title": "Product Engineer",
+      "contract_time": "full_time",
+      "salary_max": 61149.92
+    },
+    {
+      "created": "2025-08-04T00:21:32Z",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Avanti"
+      },
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5336643649",
+      "salary_is_predicted": "0",
+      "description": "Junior Full Stack .NET Developer – Fully Remote (UK-based candidates) £35,000| Permanent | UK-Based A fast-growing SaaS company is looking for a Junior Full Stack Developer to join their close-knit, fully remote engineering team. This is a fantastic opportunity for a recent graduate or early-career developer to learn from experienced professionals and contribute to a live product used by global clients. You’ll be supported by senior developers from day one and gain hands-on experience across bo…",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzM2NjQzNjQ5In0.b7HZcl5pJGNELkyVBzxRZ8iFqBqzJSWG6xKdrRM_Vec",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5336643649?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=6B61048A4B12CF90C1F9EC4A7B43DDBBF091E9F9",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "London, UK",
+        "area": ["UK", "London"]
+      },
+      "salary_min": 35000,
+      "title": "Junior Full Stack .NET Developer – Fully Remote (UK-based candidates)",
+      "contract_time": "full_time",
+      "salary_max": 35000,
+      "contract_type": "permanent"
+    },
+    {
+      "created": "2025-08-03T13:10:44Z",
+      "id": "5335985201",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "salary_min": 100000,
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "South East London, London",
+        "area": ["UK", "London", "South East London"]
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5335985201?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=AB665A762F275D35A34EEB32768587AA16DEB909",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzM1OTg1MjAxIn0.QDFEYsmDQGU7aS2RvlfaQWJ38f63Bkz404M63HQo-Uc",
+      "longitude": -0.02806,
+      "salary_max": 100000,
+      "latitude": 51.451818,
+      "company": {
+        "display_name": "InterQuest Group  Limited",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "salary_is_predicted": "0",
+      "description": "Technical Lead Hybrid (1 day pw onsite) Surrey £100,000 - £110,000 We are currently have an exciting opportunity for a Tech Lead for an industry leading and ambitious financial services company based in Surrey. The roles will sit within a core value stream and focus on developing and implementing innovative digital technology. You will lead and coach a team of technical experts who build software and customer experiences that continues to drive, shape and deliver our client's customer-centric, …",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "contract_type": "permanent",
+      "title": "Tech Lead (Java) - Surrey"
+    },
+    {
+      "title": "Senior Fullstack Mobile Product Engineer",
+      "company": {
+        "display_name": "Plasma",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.503378,
+      "salary_is_predicted": "1",
+      "description": "Plasma is a purpose-built blockchain for stablecoin payments. Engineered from the ground up to address the unique needs of stablecoins, Plasma provides a scalable, efficient, and secure foundation for the next generation of money movement. We believe stablecoins can transform global finance and improve financial access worldwide. To reach the next level of adoption, dedicated and purpose-built infrastructure is required. The Role We are looking for a Senior Fullstack Mobile Product Engineer to …",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "salary_min": 62626.44,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzNTkyNDIzNiIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.HxvbNmqf42YPU066W2Kv6_iksMX12FUTxzjvZufj4WU",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5335924236?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": ["UK", "London"],
+        "display_name": "London, UK"
+      },
+      "salary_max": 62626.44,
+      "longitude": -0.139134,
+      "contract_time": "full_time",
+      "created": "2025-08-03T12:03:12Z",
+      "id": "5335924236",
+      "__CLASS__": "Adzuna::API::Response::Job"
+    },
+    {
+      "salary_max": 58457.83,
+      "title": "Software Developer",
+      "contract_time": "full_time",
+      "salary_min": 58457.83,
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzNTkyMjA3MCIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.gm8iV2OrJT0z4BId5MDtPEvyhIAnL9kFPp0kG3cPY2w",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5335922070?utm_medium=api&utm_source=276f06d5",
+      "id": "5335922070",
+      "description": "What you will do In performing this position your core duties will include (but will not be limited to): Collaborating to develop and maintain efficient, reusable, and reliable server-side logic using Java and its enterprise libraries Working closely with cross-functional teams, including UI/UX designers, frontend developers, and product managers, to ship new full-stack features Developing code optimized for database performance, including complex SQL queries, and database performance tuning Im…",
+      "salary_is_predicted": "1",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "company": {
+        "display_name": "Harris",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-03T12:01:26Z"
+    },
+    {
+      "id": "5335921851",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "created": "2025-08-03T12:01:14Z",
+      "salary_max": 65810.83,
+      "longitude": -0.139134,
+      "contract_time": "full_time",
+      "salary_min": 65810.83,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5335921851?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzNTkyMTg1MSIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.w_d-MXlSMWhuZ640ukd6vRy8ZMML3Xk95IY8wIR-4hg",
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "London, UK",
+        "area": ["UK", "London"]
+      },
+      "salary_is_predicted": "1",
+      "description": "Plasma is a purpose-built blockchain for stablecoin payments. Engineered from the ground up to address the unique needs of stablecoins, Plasma provides a scalable, efficient, and secure foundation for the next generation of money movement. We believe stablecoins can transform global finance and improve financial access worldwide. To reach the next level of adoption, dedicated and purpose-built infrastructure is required. The Role We are looking for a Fullstack Product Engineer to join our produ…",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "company": {
+        "display_name": "Plasma",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.503378,
+      "title": "Fullstack Core Product Engineer"
+    },
+    {
+      "id": "5333503599",
+      "description": "Role Purpose Expert Heath Ltd has over 15 years of experience in leading the way in Digital Medicine. Our mission is to achieve excellence in delivering personalised and accessible healthcare on a large scale. Our algorithms are the basis of our patient-facing digital consultations and clinician-facing decision-making tools. We are passionate about health care and we are looking for a talented and thorough Developer to join the team to continue with revolutionizing health care for the benefit o…",
+      "salary_is_predicted": "0",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "company": {
+        "display_name": "Lloyds Online Doctor",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-02T02:24:13Z",
+      "contract_type": "permanent",
+      "salary_max": 50000,
+      "contract_time": "full_time",
+      "title": "Front-end Developer",
+      "salary_min": 50000,
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzMzUwMzU5OSIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.Fe-v1BNumbmpQIJIDxK6FobP6tSL89tGOlVj38TEn7Q",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5333503599?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=3A0F0544C5D0CD702A217BC11E57E23AE52408EA"
+    },
+    {
+      "title": "Software Developer (Java)",
+      "contract_time": "full_time",
+      "salary_max": 50000,
+      "contract_type": "permanent",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzMzUwMTc0MiIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.ZNv1F0aDw2bkT6ebtKiL0pQ-ezEjzdTWCYbYcjMX37Y",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5333501742?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=B94D19F4A4BA1A472DA601EC4D00593F88AF9958",
+      "salary_min": 50000,
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "description": "Role Purpose Expert Heath Ltd has over 15 years of experience in leading the way in Digital Medicine. Our mission is to achieve excellence in delivering personalised and accessible healthcare on a large scale. Our algorithms are the basis of our patient-facing digital consultations and clinician-facing decision-making tools. We are passionate about health care and we are looking for a talented and thorough Developer to join the team to continue with revolutionizing health care for the benefit o…",
+      "id": "5333501742",
+      "salary_is_predicted": "0",
+      "created": "2025-08-02T02:17:33Z",
+      "company": {
+        "display_name": "Lloyds Online Doctor",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    },
+    {
+      "salary_min": 55362.59,
+      "location": {
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "display_name": "London, UK",
+        "area": ["UK", "London"]
+      },
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzMyNDYwMTg1In0.HJ73Bsk2REy3Hr7lb9lH6sZ2qV_0LE934r25Z7M7XSY",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5332460185?utm_medium=api&utm_source=276f06d5",
+      "salary_max": 55362.59,
+      "contract_time": "full_time",
+      "title": "Senior Engineer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Funding Circle"
+      },
+      "created": "2025-08-01T20:05:14Z",
+      "id": "5332460185",
+      "description": "Senior Engineer We are seeking a proactive and curious Senior Engineer to join our team and contribute to the development of Funding Circle’s credit application journeys. As a key member of our engineering team, you will play a vital role in building and scaling our onboarding journeys, empowering businesses to access flexible financing solutions. Your passion for technology and your ability to solve complex problems will be instrumental in driving our mission forward. Who are we? We’re Funding…",
+      "salary_is_predicted": "1",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      }
+    },
+    {
+      "title": "Automation Quality Assurance Engineer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "E.ON Next Energy"
+      },
+      "latitude": 51.503378,
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "description": "We’re looking for an innovative, automation-savvy QA Engineer who’s passionate about delivering high-quality software in a fast-paced, regulated environment. If you're a natural problem-solver, curious by nature, and excited by the idea of using AI to improve productivity and testing effectiveness , this role is for you. At E.ON Next, QA is embedded from the start. You’ll work in cross-functional squads where everyone shares responsibility for quality. Our culture supports exploration, bold thi…",
+      "salary_is_predicted": "1",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzMxODEyNjc5In0.eStx8xi06H-FZxpBN2y1pclMH8HADgV7L2lr9vdxBgQ",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5331812679?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=13E2B1EE0F4E29797B48E1DD4DAF104AA56D107E",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 60335.45,
+      "contract_time": "full_time",
+      "salary_max": 60335.45,
+      "longitude": -0.139134,
+      "created": "2025-08-01T12:02:00Z",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5331812679"
+    },
+    {
+      "description": "Front end Developer Location: Hybrid (2 days per week in canary wharf office) Type: Contract or Freelance About WePlay WePlay is an award-winning sports marketing agency specialising in fan engagement, direct-to-consumer marketing, and monetisation. By blending creative innovation with performance-driven strategies, WePlay partners with leading sports organisations worldwide to drive digital growth and commercial success. With a global footprint across the US, Europe, the Middle East, and Asia,…",
+      "id": "5331659841",
+      "salary_is_predicted": "1",
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "company": {
+        "display_name": "WePlay",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-08-01T09:28:13Z",
+      "salary_max": 53778.74,
+      "contract_type": "contract",
+      "title": "Frontend Developer",
+      "salary_min": 53778.74,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5331659841?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=700379C0014D193EE7412213A8F02D163A9A865B",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzMTY1OTg0MSIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.IbHZXqd-i-aCA-yHUcQRf2Naptv5SY8ZE1O8yweY6-Y",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      }
+    },
+    {
+      "title": "Frontend Developer",
+      "salary_max": 54434.05,
+      "contract_type": "contract",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5331659171?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=5F7870791159B7716902C7332C54375753874B76",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzMTY1OTE3MSIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0._GqUSUJfVfV4A87czOP8PhRr-Q0VSW66gYVP_QgP5hQ",
+      "location": {
+        "area": ["UK", "London", "Central London", "The City"],
+        "display_name": "The City, Central London",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 54434.05,
+      "category": {
+        "tag": "it-jobs",
+        "label": "IT Jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "description": "Front end Developer Location: Hybrid (2 days per week in canary wharf office) Type: Contract or Freelance About WePlay WePlay is an award-winning sports marketing agency specialising in fan engagement, direct-to-consumer marketing, and monetisation. By blending creative innovation with performance-driven strategies, WePlay partners with leading sports organisations worldwide to drive digital growth and commercial success. With a global footprint across the US, Europe, the Middle East, and Asia,…",
+      "id": "5331659171",
+      "salary_is_predicted": "1",
+      "created": "2025-08-01T09:27:51Z",
+      "company": {
+        "display_name": "WePlay",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      }
+    },
+    {
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "id": "5331655969",
+      "created": "2025-08-01T09:26:21Z",
+      "salary_max": 54007.56,
+      "longitude": -0.139134,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMzMTY1NTk2OSIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.zlcjPPbA0XIw-_8RmHibORJcMdF8IoG7vNu4jIKNSEk",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5331655969?se=NsjQjNx18BGHjYqqUmFsxw&utm_medium=api&utm_source=276f06d5&v=2C26E6246DEA70434F1980F3305C325040AB5496",
+      "location": {
+        "area": ["UK", "London"],
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "salary_min": 54007.56,
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "tag": "it-jobs",
+        "label": "IT Jobs"
+      },
+      "salary_is_predicted": "1",
+      "description": "Java Developer with DevOps Expertise (x2) – Hybrid, London – 6-Month Contract A leading organisation within the financial services sector is embarking on a major DevOps transformation and is seeking two experienced Java Developers to play a key role in this journey. You’ll join a forward-thinking tech team delivering enterprise-grade web services and contributing to both backend and frontend development across web and native mobile platforms. This is an opportunity to drive real change in a reg…",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "Xcede"
+      },
+      "latitude": 51.503378,
+      "title": "Java Developer",
+      "contract_type": "contract"
+    },
+    {
+      "salary_max": 55929.46,
+      "longitude": -0.139134,
+      "contract_time": "full_time",
+      "salary_min": 55929.46,
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzI5NjU2MjU2In0.kGztX82Bg8j8IMrpiMAiBx8ONMLotLiW5IxxV8SIyQo",
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5329656256?utm_medium=api&utm_source=276f06d5",
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "id": "5329656256",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "created": "2025-07-31T12:06:53Z",
+      "title": "Senior Full Stack Engineer (.Net)",
+      "description": "About the role We’re looking for exceptionally talented Senior Full Stack Engineers with deep expertise in .NET/C# and WPF to join our growing team. In this role, you will lead the full software development lifecycle: from design and implementation to testing, deployment, and ongoing support for our core LegalTech products. You’ll build and enhance rich WPF-based Windows desktop applications, scalable backend services, and cloud-integrated solutions. While the title includes “Full Stack,” this …",
+      "salary_is_predicted": "1",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "company": {
+        "display_name": "Definely",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "latitude": 51.503378
+    },
+    {
+      "salary_min": 110000,
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5329394007?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMyOTM5NDAwNyIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.Ptc7S_0Eh6HCV4jR0RHsySTi0ceAy6Q5n0GG0GWLiWU",
+      "location": {
+        "area": ["UK", "London", "Central London", "The City"],
+        "display_name": "The City, Central London",
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "contract_type": "contract",
+      "salary_max": 110000,
+      "title": "C++ JUCE Frontend Developer",
+      "company": {
+        "__CLASS__": "Adzuna::API::Response::Company",
+        "display_name": "The Audio Programmer"
+      },
+      "created": "2025-07-31T06:31:31Z",
+      "salary_is_predicted": "0",
+      "id": "5329394007",
+      "description": "This is a remote position. C++ JUCE Frontend Developer Long Term Contract Remote working from anywhere $60-80 per hour This is a newly created role to join the expanding R&D team at a successful voice software company, and help them to develop their next range of creative AI voice products. Working remotely with an international team, this role is well suited to an Audio Software Engineer who loves to collaborate online but can also be responsible for their own workload and manage their own tim…",
+      "category": {
+        "label": "IT Jobs",
+        "tag": "it-jobs",
+        "__CLASS__": "Adzuna::API::Response::Category"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job"
+    },
+    {
+      "longitude": -0.195605,
+      "salary_max": 55000,
+      "title": "Python Developer",
+      "salary_min": 55000,
+      "location": {
+        "display_name": "South West London, London",
+        "area": ["UK", "London", "South West London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5328529582?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJpIjoiNTMyODUyOTU4MiIsInMiOiJOc2pRak54MThCR0hqWXFxVW1Gc3h3In0.nBxfP8ct3YhXDQq3bOFLZYb99NmsImrHASD0JP7onx0",
+      "description": "Python Developer (GenAI/LLM/Langchain experience) Hybrid Remote (Manchester, London, or Glasgow HQ) Up to £55k Global Consultancy Client *Please note, you must have at least a years commercial GenAi experience and be eligible for security clearance to be considered for this role* Are you a talented Python Developer with at least One year commercial experience with Generative AI (GenAI) tools and looking for an exciting opportunity to grow within an innovative global consultancy? Were seeking a …",
+      "id": "5328529582",
+      "salary_is_predicted": "0",
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "latitude": 51.448229,
+      "company": {
+        "display_name": "Stealth IT Consulting Limited",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "created": "2025-07-30T19:47:10Z"
+    },
+    {
+      "location": {
+        "display_name": "London, UK",
+        "area": ["UK", "London"],
+        "__CLASS__": "Adzuna::API::Response::Location"
+      },
+      "redirect_url": "https://www.adzuna.co.uk/jobs/details/5328218554?utm_medium=api&utm_source=276f06d5",
+      "adref": "eyJhbGciOiJIUzI1NiJ9.eyJzIjoiTnNqUWpOeDE4QkdIallxcVVtRnN4dyIsImkiOiI1MzI4MjE4NTU0In0.vYeZLGW2fOWNcmxDR7QqfISbtM2Jy0Euq0X_KYj-Hk4",
+      "salary_min": 74971.2,
+      "title": "UI Architect",
+      "contract_time": "full_time",
+      "salary_max": 74971.2,
+      "created": "2025-07-30T12:41:40Z",
+      "company": {
+        "display_name": "Centric Software",
+        "__CLASS__": "Adzuna::API::Response::Company"
+      },
+      "__CLASS__": "Adzuna::API::Response::Job",
+      "category": {
+        "__CLASS__": "Adzuna::API::Response::Category",
+        "label": "IT Jobs",
+        "tag": "it-jobs"
+      },
+      "salary_is_predicted": "1",
+      "id": "5328218554",
+      "description": "Job Summary We are looking for a visionary UI Architect with deep expertise in React to lead the design and development of user interfaces for our next-generation, cloud-native SaaS enterprise platform. You will define the frontend architecture, ensure best-in-class performance, and drive seamless user experiences across complex business workflows. This is a critical role where you'll architect scalable solutions that power enterprise-grade features for thousands of global users. Key Responsibi…"
+    }
+  ],
+  "__CLASS__": "Adzuna::API::Response::JobSearchResults"
+}
