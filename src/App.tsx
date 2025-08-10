@@ -17,13 +17,19 @@ function App() {
   const setTab = useStore((state) => state.setTab);
   const displayJobs = useStore((state) => state.displayJobs);
 
+  const TAB_BUTTONS: { key: Tab; labelAdd: string; labelRemove: string }[] = [
+    { key: "saved", labelAdd: "Save", labelRemove: "Unsave" },
+    { key: "applied", labelAdd: "Applied", labelRemove: "Unapplied" },
+    { key: "archived", labelAdd: "Archive", labelRemove: "Unarchive" },
+  ] as const;
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        //*/
+        /*/
         setJobs(mockResponse.results);
         /*/
         const response = await fetch(
@@ -117,19 +123,21 @@ function App() {
             >
               View Job
             </a>
-            <button
-              className="ml-4 text-gray-500 cursor-pointer"
-              onClick={() => {
-                if (tab === "archived") {
-                  // Unarchive the job
-                  moveId("new", job.id);
-                } else {
-                  moveId("archived", job.id);
-                }
-              }}
-            >
-              {tab === "archived" ? "Unarchive" : "Archive"}
-            </button>
+            {TAB_BUTTONS.map(({ key, labelAdd, labelRemove }) => (
+              <button
+                key={key}
+                className={`ml-4 text-gray-400 cursor-pointer`}
+                onClick={() => {
+                  if (tab === key) {
+                    moveId("new", job.id);
+                  } else {
+                    moveId(key, job.id);
+                  }
+                }}
+              >
+                {tab === key ? labelRemove : labelAdd}
+              </button>
+            ))}
           </li>
         ))}
       </ul>
