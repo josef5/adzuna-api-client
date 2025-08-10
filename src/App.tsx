@@ -17,10 +17,34 @@ function App() {
   const setTab = useStore((state) => state.setTab);
   const displayJobs = useStore((state) => state.displayJobs);
 
-  const TAB_BUTTONS: { key: Tab; labelAdd: string; labelRemove: string }[] = [
-    { key: "saved", labelAdd: "Save", labelRemove: "Unsave" },
-    { key: "applied", labelAdd: "Applied", labelRemove: "Unapplied" },
-    { key: "archived", labelAdd: "Archive", labelRemove: "Unarchive" },
+  const TAB_OPTIONS: {
+    key: Tab;
+    tabLabel: string;
+    addButtonLabel?: string;
+    removeButtonLabel?: string;
+  }[] = [
+    {
+      key: "new",
+      tabLabel: "New",
+    },
+    {
+      key: "saved",
+      tabLabel: "Saved",
+      addButtonLabel: "Save",
+      removeButtonLabel: "Unsave",
+    },
+    {
+      key: "applied",
+      tabLabel: "Applied",
+      addButtonLabel: "Applied",
+      removeButtonLabel: "Unapplied",
+    },
+    {
+      key: "archived",
+      tabLabel: "Archived",
+      addButtonLabel: "Archive",
+      removeButtonLabel: "Unarchive",
+    },
   ] as const;
 
   useEffect(() => {
@@ -72,38 +96,17 @@ function App() {
         <h1>Adzuna API Jobs</h1>
       </header>
       <div className="flex gap-4 mt-4" aria-label="Job Tabs">
-        <button
-          className={`${
-            tab === "new" ? "text-white" : "text-gray-400"
-          } cursor-pointer`}
-          onClick={() => setTab("new")}
-        >
-          New
-        </button>
-        <button
-          className={`${
-            tab === "saved" ? "text-white" : "text-gray-400"
-          } cursor-pointer`}
-          onClick={() => setTab("saved")}
-        >
-          Saved
-        </button>
-        <button
-          className={`${
-            tab === "applied" ? "text-white" : "text-gray-400"
-          } cursor-pointer`}
-          onClick={() => setTab("applied")}
-        >
-          Applied
-        </button>
-        <button
-          className={`${
-            tab === "archived" ? "text-white" : "text-gray-400"
-          } cursor-pointer`}
-          onClick={() => setTab("archived")}
-        >
-          Archived
-        </button>
+        {TAB_OPTIONS.map(({ key, tabLabel }) => (
+          <button
+            key={key}
+            className={`${
+              tab === key ? "text-white" : "text-gray-400"
+            } cursor-pointer`}
+            onClick={() => setTab(key as Tab)}
+          >
+            {tabLabel}
+          </button>
+        ))}
       </div>
       <hr className="my-1 border-gray-600" />
       <ul>
@@ -123,21 +126,23 @@ function App() {
             >
               View Job
             </a>
-            {TAB_BUTTONS.map(({ key, labelAdd, labelRemove }) => (
-              <button
-                key={key}
-                className={`ml-4 text-gray-400 cursor-pointer`}
-                onClick={() => {
-                  if (tab === key) {
-                    moveId("new", job.id);
-                  } else {
-                    moveId(key, job.id);
-                  }
-                }}
-              >
-                {tab === key ? labelRemove : labelAdd}
-              </button>
-            ))}
+            {TAB_OPTIONS.slice(1).map(
+              ({ key, addButtonLabel, removeButtonLabel }) => (
+                <button
+                  key={key}
+                  className={`ml-4 text-gray-400 cursor-pointer`}
+                  onClick={() => {
+                    if (tab === key) {
+                      moveId("new", job.id);
+                    } else {
+                      moveId(key, job.id);
+                    }
+                  }}
+                >
+                  {tab === key ? removeButtonLabel : addButtonLabel}
+                </button>
+              )
+            )}
           </li>
         ))}
       </ul>
