@@ -57,10 +57,6 @@ function App() {
     fetchData();
   }, [setJobs]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div className="text-red-500">Error: {error}</div>;
   }
@@ -82,45 +78,50 @@ function App() {
             {tabLabel}
           </button>
         ))}
+        {/* TODO: Add refresh button */}
       </div>
       <hr className="my-1 border-gray-600" />
-      <ul>
-        {displayJobs.map((job) => (
-          <li key={job.id} className="mt-4">
-            <h2 className="font-bold">{job.title}</h2>
-            <p>{job.company.display_name}</p>
-            <p>{job.location.display_name}</p>
-            <p>{new Date(job.created).toLocaleDateString()}</p>
-            {job.contract_type && <p>Contract: {job.contract_type}</p>}
-            <p>{job.description}</p>
-            <a
-              href={job.redirect_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              View Job
-            </a>
-            {TAB_OPTIONS.slice(1).map(
-              ({ key, addButtonLabel, removeButtonLabel }) => (
-                <button
-                  key={key}
-                  className={`ml-4 text-gray-400 cursor-pointer`}
-                  onClick={() => {
-                    if (tab === key) {
-                      moveId("new", job.id);
-                    } else {
-                      moveId(key, job.id);
-                    }
-                  }}
-                >
-                  {tab === key ? removeButtonLabel : addButtonLabel}
-                </button>
-              )
-            )}
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <div className="mt-4">Loading...</div>
+      ) : (
+        <ul>
+          {displayJobs.map((job) => (
+            <li key={job.id} className="mt-4">
+              <h2 className="font-bold">{job.title}</h2>
+              <p>{job.company.display_name}</p>
+              <p>{job.location.display_name}</p>
+              <p>{new Date(job.created).toLocaleDateString()}</p>
+              {job.contract_type && <p>Contract: {job.contract_type}</p>}
+              <p>{job.description}</p>
+              <a
+                href={job.redirect_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                View Job
+              </a>
+              {TAB_OPTIONS.slice(1).map(
+                ({ key, addButtonLabel, removeButtonLabel }) => (
+                  <button
+                    key={key}
+                    className={`ml-4 text-gray-400 cursor-pointer`}
+                    onClick={() => {
+                      if (tab === key) {
+                        moveId("new", job.id);
+                      } else {
+                        moveId(key, job.id);
+                      }
+                    }}
+                  >
+                    {tab === key ? removeButtonLabel : addButtonLabel}
+                  </button>
+                )
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 
