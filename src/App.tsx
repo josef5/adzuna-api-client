@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { useStore } from "./store/useStore";
 import type { Job } from "./types";
+import mockResponse from "./tests/mock-response.json";
 
 type Response = {
   results: Job[];
@@ -22,6 +23,9 @@ function App() {
       setError(null);
 
       try {
+        //*/
+        setJobs(mockResponse.results);
+        /*/
         const response = await fetch(
           "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=276f06d5&app_key=4d8ad3f833efde7607b09893735b52c7&results_per_page=100&what=frontend%20developer&where=london&sort_by=date&content-type=application/json"
         );
@@ -33,6 +37,7 @@ function App() {
         const json: Response = await response.json();
 
         setJobs(json.results);
+        //*/
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
