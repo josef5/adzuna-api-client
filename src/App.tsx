@@ -57,7 +57,11 @@ function App() {
         setJobs(mockResponse.results);
         /*/
         const response = await fetch(
-          "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=276f06d5&app_key=4d8ad3f833efde7607b09893735b52c7&results_per_page=100&what=frontend%20developer&where=london&sort_by=date&content-type=application/json"
+          `${import.meta.env.VITE_API_URL}?app_id=${
+            import.meta.env.VITE_APP_ID
+          }&app_key=${
+            import.meta.env.VITE_APP_KEY
+          }&results_per_page=100&what=frontend%20developer&where=london&sort_by=date&content-type=application/json`
         );
 
         if (!response.ok) {
