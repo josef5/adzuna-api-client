@@ -23,7 +23,7 @@
       "salary_is_predicted": "1",
       "id": "100000001",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "created": "2025-01-01T10:00:00Z",
+      "created": "2025-01-04T00:00:00Z",
       "company": {
         "display_name": "Awesome Company",
         "__CLASS__": "Adzuna::API::Response::Company"
@@ -50,7 +50,7 @@
       "salary_is_predicted": "1",
       "id": "100000002",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "created": "2025-01-01T09:00:00Z",
+      "created": "2025-01-03T00:00:00Z",
       "company": {
         "display_name": "Awesome Company",
         "__CLASS__": "Adzuna::API::Response::Company"
@@ -76,7 +76,7 @@
       "salary_is_predicted": "1",
       "id": "100000003",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "created": "2025-01-01T08:00:00Z",
+      "created": "2025-01-02T00:00:00Z",
       "company": {
         "display_name": "Awesome Company",
         "__CLASS__": "Adzuna::API::Response::Company"
@@ -103,7 +103,7 @@
       "salary_is_predicted": "1",
       "id": "100000004",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "created": "2025-01-01T07:00:00Z",
+      "created": "2025-01-01T00:00:00Z",
       "company": {
         "display_name": "Awesome Company",
         "__CLASS__": "Adzuna::API::Response::Company"
