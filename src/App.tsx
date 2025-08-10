@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import useLocalStorage from "./hooks/useLocalStorage";
 import { useStore } from "./store/useStore";
 import type { Job } from "./types";
 
@@ -12,17 +11,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const setJobs = useStore((state) => state.setJobs);
-  const [data, setData] = useState<Job[] | null>(null);
-  const [newJobs, setNewJobs] = useState<Job[]>([]);
-  const [archivedJobs, setArchivedJobs] = useState<Job[]>([]);
-  const [archivedIds, setArchivedIds] = useLocalStorage<string[]>(
-    "archivedIds",
-    []
-  );
-  const [displayJobs, setDisplayJobs] = useState<Job[]>([]);
-  const [tab, setTab] = useState<"new" | "archived" | "saved" | "applied">(
-    "new"
-  );
+  const tab = useStore((state) => state.tab);
+  const moveId = useStore((state) => state.moveId);
   const setTabStore = useStore((state) => state.setTab);
   const displayJobsStore = useStore((state) => state.displayJobs);
 
@@ -42,7 +32,6 @@ function App() {
 
         const json: Response = await response.json();
 
-        setData(json.results);
         setJobs(json.results);
       } catch (error) {
         if (error instanceof Error) {
@@ -58,31 +47,12 @@ function App() {
     fetchData();
   }, [setJobs]);
 
-  useEffect(() => {
-    if (data) {
-      setNewJobs(data.filter((job) => !archivedIds.includes(job.id)));
-      setArchivedJobs(data.filter((job) => archivedIds.includes(job.id)));
-    }
-  }, [data, archivedIds]);
-
-  useEffect(() => {
-    if (tab === "new") {
-      setDisplayJobs(newJobs);
-    } else {
-      setDisplayJobs(archivedJobs);
-    }
-  }, [tab, newJobs, archivedJobs]);
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (error) {
     return <div className="text-red-500">Error: {error}</div>;
-  }
-
-  if (!data) {
-    return <div className="text-gray-500">No data available</div>;
   }
 
   return (
@@ -145,14 +115,15 @@ function App() {
             <button
               className="ml-4 text-gray-500 cursor-pointer"
               onClick={() => {
-                if (tab === "new") {
-                  setArchivedIds((prev) => [...prev, job.id]);
+                if (tab === "archived") {
+                  // Unarchive the job
+                  moveId("new", job.id);
                 } else {
-                  setArchivedIds((prev) => prev.filter((id) => id !== job.id));
+                  moveId("archived", job.id);
                 }
               }}
             >
-              {tab === "new" ? "Archive" : "Unarchive"}
+              {tab === "archived" ? "Unarchive" : "Archive"}
             </button>
           </li>
         ))}
