@@ -63,8 +63,11 @@ export const useStore = create<Store>((set, get) => ({
       savedJobs,
       appliedJobs,
       archivedJobs,
-      displayJobs: newJobs,
     });
+
+    // Trigger update of displayJobs based on current tab
+    const { tab, setTab } = get();
+    setTab(tab);
 
     localStorage.setItem("savedIds", JSON.stringify(savedIds));
     localStorage.setItem("appliedIds", JSON.stringify(appliedIds));
