@@ -81,9 +81,16 @@ function App() {
         {/* TODO: Add refresh button */}
       </div>
       <hr className="my-1 border-gray-600" />
-      {loading ? (
+      {error ? (
+        <div className="text-red-500 mt-4">Error: {error}</div>
+      ) : loading ? (
         <div className="mt-4">Loading...</div>
       ) : (
+        <>
+          {displayJobs.length === 0 ? (
+            <div className="mt-4">No new jobs available</div>
+          ) : (
+            <div className="">
         <ul>
           {displayJobs.map((job) => (
             <li key={job.id} className="mt-4">
@@ -121,11 +128,12 @@ function App() {
             </li>
           ))}
         </ul>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
-
-  // return <pre>{JSON.stringify(data, null, 2)}</pre>;
 }
 
 export default App;
