@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Adzuna API Jobs</h1>
+        <h1>Adzuna Frontend Developer Jobs in London</h1>
       </header>
       <div className="mt-4 flex gap-4" aria-label="Job Tabs">
         {TAB_OPTIONS.map(({ key, tabLabel }) => (
