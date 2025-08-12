@@ -59,7 +59,10 @@ function App() {
           {displayJobs.length === 0 ? (
             <div className="mt-4">{`No ${tab} jobs available`}</div>
           ) : (
-            <div className="">
+            <div className="mt-4">
+              <p className="text-gray-400">
+                {displayJobs.length} {tab} jobs
+              </p>
               <ul>
                 {displayJobs.map((job) => (
                   <li key={job.id} className="mt-4">
