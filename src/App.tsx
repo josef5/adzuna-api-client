@@ -29,7 +29,7 @@ function App() {
       <header className="App-header">
         <h1>Adzuna API Jobs</h1>
       </header>
-      <div className="flex gap-4 mt-4" aria-label="Job Tabs">
+      <div className="mt-4 flex gap-4" aria-label="Job Tabs">
         {TAB_OPTIONS.map(({ key, tabLabel }) => (
           <button
             key={key}
@@ -43,7 +43,7 @@ function App() {
         ))}
         <div className="flex-1" />
         <button
-          className="text-gray-400 cursor-pointer hover:text-white"
+          className="cursor-pointer text-gray-400 hover:text-white"
           onClick={handleRefresh}
         >
           Refresh
@@ -51,7 +51,7 @@ function App() {
       </div>
       <hr className="my-1 border-gray-600" />
       {error ? (
-        <div className="text-red-500 mt-4">Error: {error}</div>
+        <div className="mt-4 text-red-500">Error: {error}</div>
       ) : loading ? (
         <div className="mt-4">Loading...</div>
       ) : (
@@ -81,7 +81,7 @@ function App() {
                       ({ key, addButtonLabel, removeButtonLabel }) => (
                         <button
                           key={key}
-                          className={`ml-4 text-gray-400 cursor-pointer`}
+                          className={`ml-4 cursor-pointer text-gray-400`}
                           onClick={() => {
                             if (tab === key) {
                               moveId("new", job.id);
@@ -92,7 +92,7 @@ function App() {
                         >
                           {tab === key ? removeButtonLabel : addButtonLabel}
                         </button>
-                      )
+                      ),
                     )}
                   </li>
                 ))}
