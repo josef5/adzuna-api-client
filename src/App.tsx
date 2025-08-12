@@ -13,6 +13,11 @@ function App() {
   const displayJobs = useStore((state) => state.displayJobs);
   const { data, fetchData, loading, error } = useFetchJobs();
 
+  function handleRefresh() {
+    fetchData();
+    setTab("new");
+  }
+
   useEffect(() => {
     if (data) {
       setJobs(data);
@@ -39,7 +44,7 @@ function App() {
         <div className="flex-1" />
         <button
           className="text-gray-400 cursor-pointer hover:text-white"
-          onClick={fetchData}
+          onClick={handleRefresh}
         >
           Refresh
         </button>
