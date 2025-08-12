@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Job } from "../types";
 
 type ApiResponse = {
@@ -8,10 +8,11 @@ type ApiResponse = {
 export function useFetchJobs() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<Job[] | null>(null);
   const jobTitle = encodeURIComponent("Frontend Developer");
   const jobLocation = "London";
 
-  async function fetchData() {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -32,8 +33,7 @@ export function useFetchJobs() {
       }
 
       const json: ApiResponse = await response.json();
-
-      return json.results;
+      setData(json.results);
       //*/
     } catch (error) {
       if (error instanceof Error) {
@@ -44,9 +44,14 @@ export function useFetchJobs() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [jobTitle, jobLocation]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return {
+    data,
     fetchData,
     loading,
     error,
