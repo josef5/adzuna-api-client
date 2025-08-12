@@ -36,7 +36,13 @@ function App() {
             {tabLabel}
           </button>
         ))}
-        {/* TODO: Add refresh button */}
+        <div className="flex-1" />
+        <button
+          className="text-gray-400 cursor-pointer hover:text-white"
+          onClick={fetchData}
+        >
+          Refresh
+        </button>
       </div>
       <hr className="my-1 border-gray-600" />
       {error ? (
