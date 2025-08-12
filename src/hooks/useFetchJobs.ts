@@ -18,8 +18,8 @@ export function useFetchJobs() {
 
     try {
       /*/
-        setJobs(mockResponse.results);
-        /*/
+      setData((await import("../tests/mock-response.json")).default.results);
+      /*/
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}?app_id=${
           import.meta.env.VITE_APP_ID
