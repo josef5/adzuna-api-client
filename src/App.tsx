@@ -60,11 +60,11 @@ function App() {
       {error ? (
         <div className="mt-4 text-red-500">Error: {error}</div>
       ) : loading ? (
-        <div className="mt-4">Loading...</div>
+        <div className="mt-4 text-gray-400">Loading...</div>
       ) : (
         <>
           {displayJobs.length === 0 ? (
-            <div className="mt-4">{`No ${tab} jobs available`}</div>
+            <div className="mt-4 text-gray-400">{`No ${tab} jobs available`}</div>
           ) : (
             <div className="mt-4">
               <p className="text-gray-400">
