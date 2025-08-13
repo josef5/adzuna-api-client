@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import "./App.css";
 import { TAB_OPTIONS } from "./constants";
 import { useFetchJobs } from "./hooks/useFetchJobs";
@@ -13,16 +13,23 @@ function App() {
   const displayJobs = useStore((state) => state.displayJobs);
   const { data, fetchData, loading, error } = useFetchJobs();
 
-  function handleRefresh() {
+  const handleRefresh = useCallback(() => {
     fetchData();
     setTab("new");
-  }
+  }, [fetchData, setTab]);
 
   useEffect(() => {
     if (data) {
       setJobs(data);
     }
   }, [data, setJobs]);
+
+  // Fetch periodically
+  useEffect(() => {
+    const interval = setInterval(handleRefresh, 60 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, [handleRefresh]);
 
   return (
     <div className="App">
