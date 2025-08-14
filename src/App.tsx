@@ -76,7 +76,15 @@ function App() {
                     <h2 className="font-bold">{job.title}</h2>
                     <p>{job.company.display_name}</p>
                     <p>{job.location.display_name}</p>
-                    <p>{new Date(job.created).toLocaleDateString()}</p>
+                    <p>
+                      {new Date(job.created).toLocaleString("en-GB", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </p>
                     {job.contract_type && <p>Contract: {job.contract_type}</p>}
                     <p>{job.description}</p>
                     <a
