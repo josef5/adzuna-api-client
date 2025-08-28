@@ -5,11 +5,14 @@ import { useFetchJobs } from "./hooks/useFetchJobs";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
 
+// TODO: Add notification for new jobs
+// TODO: Purge unused job ids from archive
 function App() {
   const setJobs = useStore((state) => state.setJobs);
   const tab = useStore((state) => state.tab);
   const moveId = useStore((state) => state.moveId);
   const setTab = useStore((state) => state.setTab);
+  const newJobs = useStore((state) => state.newJobs);
   const displayJobs = useStore((state) => state.displayJobs);
   const { data, fetchData, loading, error } = useFetchJobs();
 
@@ -17,6 +20,14 @@ function App() {
     fetchData();
     setTab("new");
   }, [fetchData, setTab]);
+
+  const handleNotification = useCallback(() => {
+    if (newJobs.length > 0 && Notification.permission === "granted") {
+      new Notification("New jobs available", {
+        body: `There are ${newJobs.length} new job${newJobs.length > 1 ? "s" : ""} available.`,
+      });
+    }
+  }, [newJobs.length]);
 
   useEffect(() => {
     if (data) {
@@ -26,10 +37,32 @@ function App() {
 
   // Fetch periodically
   useEffect(() => {
-    const interval = setInterval(handleRefresh, 60 * 60 * 1000);
+    const interval = setInterval(
+      async function () {
+        setTab("new");
+        await fetchData();
+
+        handleNotification();
+      },
+      60 * 60 * 1000,
+    );
 
     return () => clearInterval(interval);
-  }, [handleRefresh]);
+  }, [handleRefresh, fetchData, setTab, handleNotification]);
+
+  // Request notification permission on mount
+  useEffect(() => {
+    async function requestNotificationPermission() {
+      if (Notification.requestPermission.length === 0) {
+        // Modern promise-based API
+        await Notification.requestPermission();
+      }
+    }
+
+    if ("Notification" in window && Notification.permission !== "granted") {
+      requestNotificationPermission();
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -85,6 +118,7 @@ function App() {
                         minute: "2-digit",
                       })}
                     </p>
+                    {/* TODO: Better treatment for contract types */}
                     {job.contract_type && <p>Contract: {job.contract_type}</p>}
                     <p>{job.description}</p>
                     <a
