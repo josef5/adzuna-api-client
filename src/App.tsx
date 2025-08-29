@@ -23,6 +23,8 @@ function App() {
   }, [fetchData, setTab]);
 
   const handleNotification = useCallback(() => {
+    if (!("Notification" in window)) return;
+
     if (newJobs.length > 0 && Notification.permission === "granted") {
       new Notification(
         `${newJobs.length} new job${newJobs.length > 1 ? "s" : ""} available`,
@@ -56,15 +58,16 @@ function App() {
   useEffect(() => {
     async function requestNotificationPermission() {
       if (Notification.requestPermission.length === 0) {
-        // Modern promise-based API
         await Notification.requestPermission();
       }
     }
 
+    if ("Notification" in window) {
     console.log("Notification permission:", Notification.permission);
 
-    if ("Notification" in window && Notification.permission !== "granted") {
+      if (Notification.permission !== "granted") {
       requestNotificationPermission();
+    }
     }
   }, []);
 
