@@ -63,11 +63,11 @@ function App() {
     }
 
     if ("Notification" in window) {
-    console.log("Notification permission:", Notification.permission);
+      console.log("Notification permission:", Notification.permission);
 
       if (Notification.permission !== "granted") {
-      requestNotificationPermission();
-    }
+        requestNotificationPermission();
+      }
     }
   }, []);
 
@@ -113,7 +113,10 @@ function App() {
               <ul>
                 {displayJobs.map((job) => (
                   <li key={job.id} className="mt-4">
-                    <h2 className="font-bold">{job.title}</h2>
+                    <h2>
+                      <span className="font-bold">{job.title}</span>
+                      {job.contract_type && <span> - {job.contract_type}</span>}
+                    </h2>
                     <p>{job.company.display_name}</p>
                     <p>{job.location.display_name}</p>
                     <p>
@@ -125,8 +128,6 @@ function App() {
                         minute: "2-digit",
                       })}
                     </p>
-                    {/* TODO: Better treatment for contract types */}
-                    {job.contract_type && <p>Contract: {job.contract_type}</p>}
                     <p>{job.description}</p>
                     <a
                       href={job.redirect_url}
