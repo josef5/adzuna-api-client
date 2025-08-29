@@ -23,9 +23,9 @@ function App() {
 
   const handleNotification = useCallback(() => {
     if (newJobs.length > 0 && Notification.permission === "granted") {
-      new Notification("New jobs available", {
-        body: `There are ${newJobs.length} new job${newJobs.length > 1 ? "s" : ""} available.`,
-      });
+      new Notification(
+        `${newJobs.length} new job${newJobs.length > 1 ? "s" : ""} available`,
+      );
     }
   }, [newJobs.length]);
 
