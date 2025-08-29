@@ -50,7 +50,7 @@ export const useStore = create<Store>((set, get) => ({
       .filter((job) => !allStoredIds.includes(job.id))
       .sort(
         // Newest jobs first
-        (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime()
+        (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime(),
       );
     const savedJobs = jobs.filter((job) => savedIds.includes(job.id));
     const appliedJobs = jobs.filter((job) => appliedIds.includes(job.id));
@@ -120,7 +120,6 @@ export const useStore = create<Store>((set, get) => ({
     }
 
     if (archivedIds.includes(id)) {
-      console.log("Removing archived ID:", id);
       set({
         archivedIds: archivedIds.filter((archivedId) => archivedId !== id),
       });

@@ -1,11 +1,10 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { TAB_OPTIONS } from "./constants";
 import { useFetchJobs } from "./hooks/useFetchJobs";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
 
-// TODO: Add notification for new jobs
 // TODO: Purge unused job ids from archive
 function App() {
   const setJobs = useStore((state) => state.setJobs);
@@ -15,9 +14,11 @@ function App() {
   const newJobs = useStore((state) => state.newJobs);
   const displayJobs = useStore((state) => state.displayJobs);
   const { data, fetchData, loading, error } = useFetchJobs();
+  const [lastFetchDate, setLastFetchDate] = useState<Date | null>(new Date());
 
   const handleRefresh = useCallback(() => {
     fetchData();
+    setLastFetchDate(new Date());
     setTab("new");
   }, [fetchData, setTab]);
 
@@ -41,6 +42,7 @@ function App() {
       async function () {
         setTab("new");
         await fetchData();
+        setLastFetchDate(new Date());
 
         handleNotification();
       },
@@ -48,7 +50,7 @@ function App() {
     );
 
     return () => clearInterval(interval);
-  }, [handleRefresh, fetchData, setTab, handleNotification]);
+  }, [fetchData, setTab, handleNotification]);
 
   // Request notification permission on mount
   useEffect(() => {
@@ -58,6 +60,8 @@ function App() {
         await Notification.requestPermission();
       }
     }
+
+    console.log("Notification permission:", Notification.permission);
 
     if ("Notification" in window && Notification.permission !== "granted") {
       requestNotificationPermission();
@@ -150,6 +154,18 @@ function App() {
                 ))}
               </ul>
             </div>
+          )}
+          {lastFetchDate && (
+            <p className="mt-4 text-gray-400">
+              Last updated:{" "}
+              {lastFetchDate.toLocaleString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
           )}
         </>
       )}
