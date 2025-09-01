@@ -158,6 +158,7 @@ export const useStore = create<Store>((set, get) => ({
       savedIds: state.savedIds.filter((id) => usedIds.includes(id)),
       appliedIds: state.appliedIds.filter((id) => usedIds.includes(id)),
       archivedIds: state.archivedIds.filter((id) => usedIds.includes(id)),
+      showPurgeButton: false,
     }));
 
     localStorage.setItem("savedIds", JSON.stringify(get().savedIds));
