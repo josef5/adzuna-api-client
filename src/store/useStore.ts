@@ -22,6 +22,9 @@ interface Store {
 
   tab: Tab;
   setTab: (tab: Tab) => void;
+
+  showPurgeButton: boolean;
+  purgeUnusedIds: (data: Job[]) => void;
 }
 
 export const useStore = create<Store>((set, get) => ({
@@ -70,6 +73,9 @@ export const useStore = create<Store>((set, get) => ({
     localStorage.setItem("savedIds", JSON.stringify(savedIds));
     localStorage.setItem("appliedIds", JSON.stringify(appliedIds));
     localStorage.setItem("archivedIds", JSON.stringify(archivedIds));
+
+    // Show purge button if there are significantly more stored IDs than jobs
+    set({ showPurgeButton: allStoredIds.length > jobs.length * 1.25 });
   },
 
   setTab: (tab) => {
@@ -141,5 +147,21 @@ export const useStore = create<Store>((set, get) => ({
     }
 
     setJobs([...newJobs, ...savedJobs, ...appliedJobs, ...archivedJobs]);
+  },
+
+  showPurgeButton: false,
+
+  purgeUnusedIds: (jobs: Job[]) => {
+    const usedIds = jobs.map((job) => job.id);
+
+    set((state) => ({
+      savedIds: state.savedIds.filter((id) => usedIds.includes(id)),
+      appliedIds: state.appliedIds.filter((id) => usedIds.includes(id)),
+      archivedIds: state.archivedIds.filter((id) => usedIds.includes(id)),
+    }));
+
+    localStorage.setItem("savedIds", JSON.stringify(get().savedIds));
+    localStorage.setItem("appliedIds", JSON.stringify(get().appliedIds));
+    localStorage.setItem("archivedIds", JSON.stringify(get().archivedIds));
   },
 }));

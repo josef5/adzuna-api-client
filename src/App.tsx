@@ -5,7 +5,6 @@ import { useFetchJobs } from "./hooks/useFetchJobs";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
 
-// TODO: Purge unused job ids from archive
 function App() {
   const setJobs = useStore((state) => state.setJobs);
   const tab = useStore((state) => state.tab);
@@ -13,6 +12,8 @@ function App() {
   const setTab = useStore((state) => state.setTab);
   const newJobs = useStore((state) => state.newJobs);
   const displayJobs = useStore((state) => state.displayJobs);
+  const showPurgeButton = useStore((state) => state.showPurgeButton);
+  const purgeUnusedIds = useStore((state) => state.purgeUnusedIds);
   const { data, fetchData, loading, error } = useFetchJobs();
   const [lastFetchDate, setLastFetchDate] = useState<Date | null>(new Date());
 
@@ -31,6 +32,10 @@ function App() {
       );
     }
   }, [newJobs.length]);
+
+  function handlePurge() {
+    purgeUnusedIds(data ?? []);
+  }
 
   useEffect(() => {
     if (data) {
@@ -89,6 +94,14 @@ function App() {
           </button>
         ))}
         <div className="flex-1" />
+        {showPurgeButton && (
+          <button
+            className="cursor-pointer text-gray-400 hover:text-white"
+            onClick={handlePurge}
+          >
+            Purge Ids
+          </button>
+        )}
         <button
           className="cursor-pointer text-gray-400 hover:text-white"
           onClick={handleRefresh}
