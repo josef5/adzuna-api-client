@@ -1,5 +1,7 @@
 import type { Tab } from "./types";
 
+export const LOCAL_STORAGE_KEY = "adzunaIds";
+
 export const TAB_OPTIONS: {
   key: Tab;
   tabLabel: string;
