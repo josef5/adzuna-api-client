@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import type { Job, Tab } from "../types";
-import { LOCAL_STORAGE_KEY } from "../constants";
+import { LOCAL_STORAGE_KEY, PURGE_THRESHOLD } from "../constants";
 
 interface Store {
   savedIds: string[];
@@ -85,7 +85,9 @@ export const useStore = create<Store>((set, get) => {
       );
 
       // Show purge button if there are significantly more stored IDs than jobs
-      set({ showPurgeButton: allStoredIds.length > jobs.length * 1.25 });
+      set({
+        showPurgeButton: allStoredIds.length > jobs.length * PURGE_THRESHOLD,
+      });
     },
 
     setTab: (tab) => {

@@ -31,3 +31,5 @@ export const TAB_OPTIONS: {
     removeButtonLabel: "Unarchive",
   },
 ] as const;
+
+export const PURGE_THRESHOLD = 1.5;
