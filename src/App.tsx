@@ -27,9 +27,14 @@ function App() {
     if (!("Notification" in window)) return;
 
     if (newJobs.length > 0 && Notification.permission === "granted") {
-      new Notification(
+      const notification = new Notification(
         `${newJobs.length} new job${newJobs.length > 1 ? "s" : ""} available`,
       );
+
+      notification.onclick = function () {
+        window.focus();
+        this.close();
+      };
     }
   }, [newJobs.length]);
 
