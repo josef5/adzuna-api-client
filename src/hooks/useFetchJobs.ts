@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { Job } from "../types";
+import { RESULTS_PER_PAGE } from "../constants";
 
 type ApiResponse = {
   results: Job[];
@@ -25,7 +26,7 @@ export function useFetchJobs() {
           import.meta.env.VITE_APP_ID
         }&app_key=${
           import.meta.env.VITE_APP_KEY
-        }&what=${jobTitle}&where=${jobLocation}&sort_by=date&results_per_page=100&content-type=application/json`
+        }&what=${jobTitle}&where=${jobLocation}&sort_by=date&results_per_page=${RESULTS_PER_PAGE}&content-type=application/json`,
       );
 
       if (!response.ok) {
