@@ -130,7 +130,10 @@ function App() {
               </p>
               <ul>
                 {displayJobs.map((job) => (
-                  <li key={job.id} className="mt-4">
+                  <li
+                    key={job.id}
+                    className={`mt-4 ${job.title.includes("Frontend") ? "" : "text-gray-500"}`}
+                  >
                     <h2>
                       <span className="font-bold">{job.title}</span>
                       {job.contract_type && <span> - {job.contract_type}</span>}
