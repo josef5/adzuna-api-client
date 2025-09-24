@@ -55,11 +55,7 @@ export const useStore = create<Store>((set, get) => {
 
       const newJobs = jobs
         .filter((job) => !allStoredIds.includes(job.id))
-        .sort(
-          // Newest jobs first
-          (a, b) =>
-            new Date(b.created).getTime() - new Date(a.created).getTime(),
-        );
+        .sort((a) => (a.title.includes("Frontend") ? -1 : 1));
       const savedJobs = jobs.filter((job) => savedIds.includes(job.id));
       const appliedJobs = jobs.filter((job) => appliedIds.includes(job.id));
       const archivedJobs = jobs.filter((job) => archivedIds.includes(job.id));
