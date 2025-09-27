@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import type { Job, Tab } from "../types";
 import { LOCAL_STORAGE_KEY, PURGE_THRESHOLD } from "../constants";
+import { isFrontendJob } from "../lib/utils";
+import type { Job, Tab } from "../types";
 
 interface Store {
   savedIds: string[];
@@ -55,7 +56,7 @@ export const useStore = create<Store>((set, get) => {
 
       const newJobs = jobs
         .filter((job) => !allStoredIds.includes(job.id))
-        .sort((a) => (a.title.includes("Frontend") ? -1 : 1));
+        .sort((a) => (isFrontendJob(a.title) ? -1 : 1));
       const savedJobs = jobs.filter((job) => savedIds.includes(job.id));
       const appliedJobs = jobs.filter((job) => appliedIds.includes(job.id));
       const archivedJobs = jobs.filter((job) => archivedIds.includes(job.id));

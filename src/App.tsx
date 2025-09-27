@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { TAB_OPTIONS } from "./constants";
 import { useFetchJobs } from "./hooks/useFetchJobs";
+import { isFrontendJob } from "./lib/utils";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
 
@@ -132,7 +133,7 @@ function App() {
                 {displayJobs.map((job) => (
                   <li
                     key={job.id}
-                    className={`mt-4 ${job.title.includes("Frontend") ? "" : "text-gray-500"}`}
+                    className={`mt-4 ${isFrontendJob(job.title) ? "" : "text-gray-500"}`}
                   >
                     <h2>
                       <span className="font-bold">{job.title}</span>
