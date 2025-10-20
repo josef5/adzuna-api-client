@@ -56,7 +56,22 @@ export const useStore = create<Store>((set, get) => {
 
       const newJobs = jobs
         .filter((job) => !allStoredIds.includes(job.id))
-        .sort((a) => (isFrontendJob(a.title) ? -1 : 1));
+        .sort((a, b) => {
+          // Sort by frontend jobs first
+          const aFront = isFrontendJob(a.title) ? 1 : 0;
+          const bFront = isFrontendJob(b.title) ? 1 : 0;
+          if (aFront !== bFront) return bFront - aFront;
+
+          // Then by date (newest first)
+          const getTime = (job: Job) => {
+            const d = job.created ?? "";
+            const t = Date.parse(d);
+            return isNaN(t) ? 0 : t;
+          };
+
+          return getTime(b) - getTime(a);
+        });
+
       const savedJobs = jobs.filter((job) => savedIds.includes(job.id));
       const appliedJobs = jobs.filter((job) => appliedIds.includes(job.id));
       const archivedJobs = jobs.filter((job) => archivedIds.includes(job.id));
