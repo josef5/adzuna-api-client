@@ -132,7 +132,7 @@ function App() {
               <ul>
                 {displayJobs.map((job) => (
                   <li
-                    key={job.id}
+                    key={job.newId}
                     className={`mt-4 ${isFrontendJob(job.title) ? "" : "text-gray-500"}`}
                   >
                     <h2>
@@ -141,6 +141,7 @@ function App() {
                     </h2>
                     <p>{job.company.display_name}</p>
                     <p>{job.location.display_name}</p>
+                    <p className="font-mono text-red-500">NewId: {job.newId}</p>
                     <p>
                       {new Date(job.created).toLocaleString("en-GB", {
                         year: "numeric",
@@ -166,9 +167,9 @@ function App() {
                           className={`ml-4 cursor-pointer text-gray-400`}
                           onClick={() => {
                             if (tab === key) {
-                              moveId("new", job.id);
+                              moveId("new", job.newId);
                             } else {
-                              moveId(key, job.id);
+                              moveId(key, job.newId);
                             }
                           }}
                         >

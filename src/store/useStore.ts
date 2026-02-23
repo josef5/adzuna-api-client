@@ -55,7 +55,7 @@ export const useStore = create<Store>((set, get) => {
       const allStoredIds = [...savedIds, ...appliedIds, ...archivedIds];
 
       const newJobs = jobs
-        .filter((job) => !allStoredIds.includes(job.id))
+        .filter((job) => !allStoredIds.includes(job.newId))
         .sort((a, b) => {
           // Sort by frontend jobs first
           const aFront = isFrontendJob(a.title) ? 1 : 0;
@@ -72,9 +72,11 @@ export const useStore = create<Store>((set, get) => {
           return getTime(b) - getTime(a);
         });
 
-      const savedJobs = jobs.filter((job) => savedIds.includes(job.id));
-      const appliedJobs = jobs.filter((job) => appliedIds.includes(job.id));
-      const archivedJobs = jobs.filter((job) => archivedIds.includes(job.id));
+      const savedJobs = jobs.filter((job) => savedIds.includes(job.newId));
+      const appliedJobs = jobs.filter((job) => appliedIds.includes(job.newId));
+      const archivedJobs = jobs.filter((job) =>
+        archivedIds.includes(job.newId),
+      );
 
       set({
         newJobs,
@@ -176,7 +178,7 @@ export const useStore = create<Store>((set, get) => {
     showPurgeButton: false,
 
     purgeUnusedIds: (jobs: Job[]) => {
-      const usedIds = jobs.map((job) => job.id);
+      const usedIds = jobs.map((job) => job.newId);
 
       set((state) => ({
         savedIds: state.savedIds.filter((id) => usedIds.includes(id)),
