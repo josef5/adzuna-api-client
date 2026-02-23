@@ -3,6 +3,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import { LOCAL_STORAGE_KEY, PURGE_THRESHOLD } from "../constants";
 import { isFrontendJob } from "../lib/utils";
 import type { Job, Tab } from "../types";
+import { opfsStorage } from "./opfsAdapter";
 
 interface Store {
   savedIds: string[];
@@ -162,7 +163,7 @@ export const useStore = create<Store>()(
     }),
     {
       name: LOCAL_STORAGE_KEY,
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => opfsStorage),
       partialize: (state) => ({
         savedIds: state.savedIds,
         appliedIds: state.appliedIds,
