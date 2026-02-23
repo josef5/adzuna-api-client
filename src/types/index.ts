@@ -1,5 +1,6 @@
 export type Job = {
   id: string;
+  newId: string;
   title: string;
   redirect_url: string;
   company: { display_name: string };

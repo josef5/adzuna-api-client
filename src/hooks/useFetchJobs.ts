@@ -58,3 +58,9 @@ export function useFetchJobs() {
     error,
   };
 }
+function addNewIds(jobs: Job[]): Job[] {
+  return jobs.map((job) => ({
+    ...job,
+    newId: `${job.title.trim().replace(/\s+/g, "-")}-${job.company.display_name.trim().replace(/\s+/g, "-")}-${job.location.display_name.trim().replace(/\s+/g, "-")}`,
+  }));
+}
