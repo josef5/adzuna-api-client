@@ -34,7 +34,10 @@ export function useFetchJobs() {
       }
 
       const json: ApiResponse = await response.json();
-      setData(json.results);
+
+      const jobsWithNewIds = addNewIds(json.results);
+      const dedupedJobs = dedupeJobs(jobsWithNewIds);
+      setData(dedupedJobs);
       //*/
     } catch (error) {
       if (error instanceof Error) {
@@ -47,6 +50,7 @@ export function useFetchJobs() {
     }
   }, [jobTitle, jobLocation]);
 
+  // Initial fetch
   useEffect(() => {
     fetchData();
   }, [fetchData]);
@@ -58,9 +62,23 @@ export function useFetchJobs() {
     error,
   };
 }
+
 function addNewIds(jobs: Job[]): Job[] {
   return jobs.map((job) => ({
     ...job,
     newId: `${job.title.trim().replace(/\s+/g, "-")}-${job.company.display_name.trim().replace(/\s+/g, "-")}-${job.location.display_name.trim().replace(/\s+/g, "-")}`,
   }));
+}
+
+function dedupeJobs(jobs: Job[]): Job[] {
+  const uniqueIds = new Set<string>();
+
+  return jobs.filter((job) => {
+    if (uniqueIds.has(job.newId)) {
+      return false;
+    } else {
+      uniqueIds.add(job.newId);
+      return true;
+    }
+  });
 }
