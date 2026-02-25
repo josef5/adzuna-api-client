@@ -64,10 +64,16 @@ export function useFetchJobs() {
 }
 
 function addNewIds(jobs: Job[]): Job[] {
-  return jobs.map((job) => ({
-    ...job,
-    newId: `${job.title.trim().replace(/\s+/g, "-")}-${job.company.display_name.trim().replace(/\s+/g, "-")}-${job.location.display_name.trim().replace(/\s+/g, "-")}`,
-  }));
+  return jobs.map((job) => {
+    const title = job.title ?? "";
+    const company = job.company?.display_name ?? "";
+    const location = job.location?.display_name ?? "";
+
+    return {
+      ...job,
+      newId: `${title.trim().replace(/\s+/g, "-")}-${company.trim().replace(/\s+/g, "-")}-${location.trim().replace(/\s+/g, "-")}`,
+    };
+  });
 }
 
 function dedupeJobs(jobs: Job[]): Job[] {
