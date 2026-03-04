@@ -141,7 +141,6 @@ function App() {
                     </h2>
                     <p>{job.company.display_name}</p>
                     <p>{job.location.display_name}</p>
-                    <p className="font-mono text-red-500">NewId: {job.newId}</p>
                     <p>
                       {new Date(job.created).toLocaleString("en-GB", {
                         year: "numeric",
