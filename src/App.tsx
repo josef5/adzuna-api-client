@@ -57,7 +57,7 @@ function App() {
         await fetchData();
         setLastFetchDate(new Date());
 
-        handleNotification();
+        requestAnimationFrame(() => handleNotification());
       },
       60 * 60 * 1000,
     );
