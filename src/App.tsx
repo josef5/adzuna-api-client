@@ -82,6 +82,26 @@ function App() {
     }
   }, []);
 
+  const auth = false; // Placeholder for authentication logic
+
+  if (!auth) {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Adzuna Frontend Developer Jobs in London</h1>
+        </header>
+        <div className="mt-4 text-gray-400">
+          <button
+            className="cursor-pointer rounded border-1 border-transparent bg-white px-4 py-1 text-sm font-semibold text-blue-500 hover:text-blue-700"
+            onClick={() => alert("Login functionality not implemented")}
+          >
+            Log in with GitHub
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
