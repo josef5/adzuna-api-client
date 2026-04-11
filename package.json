@@ -15,6 +15,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@neondatabase/auth": "0.2.0-beta.1",
+    "@neondatabase/neon-js": "0.2.0-beta.1",
     "@tailwindcss/vite": "^4.1.11",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
