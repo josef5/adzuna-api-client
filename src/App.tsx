@@ -3,6 +3,7 @@ import "./App.css";
 import { TAB_OPTIONS } from "./constants";
 import { useFetchJobs } from "./hooks/useFetchJobs";
 import { authClient } from "./lib/auth";
+import { getPersistedJobState, savePersistedJobState } from "./lib/jobStateApi";
 import { isFrontendJob } from "./lib/utils";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
@@ -16,12 +17,24 @@ function App() {
   const displayJobs = useStore((state) => state.displayJobs);
   const showPurgeButton = useStore((state) => state.showPurgeButton);
   const purgeUnusedIds = useStore((state) => state.purgeUnusedIds);
+  const savedIds = useStore((state) => state.savedIds);
+  const appliedIds = useStore((state) => state.appliedIds);
+  const archivedIds = useStore((state) => state.archivedIds);
+  const hydratePersistedState = useStore(
+    (state) => state.hydratePersistedState,
+  );
+  const resetState = useStore((state) => state.resetState);
   const session = authClient.useSession();
-  const isAuthenticated = Boolean(session.data?.user);
+  const userId = session.data?.user.id ?? null;
+  const isAuthenticated = Boolean(userId);
   const { data, fetchData, loading, error } = useFetchJobs(isAuthenticated);
   const [lastFetchDate, setLastFetchDate] = useState<Date | null>(new Date());
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+  const [storageStatus, setStorageStatus] = useState<
+    "idle" | "loading" | "ready" | "error"
+  >("idle");
+  const [storageError, setStorageError] = useState<string | null>(null);
 
   const handleRefresh = useCallback(() => {
     if (!isAuthenticated) {
@@ -56,6 +69,9 @@ function App() {
 
     try {
       await authClient.signOut();
+      resetState();
+      setStorageStatus("idle");
+      setStorageError(null);
     } catch (error) {
       setAuthError(
         error instanceof Error ? error.message : "Unable to sign out",
@@ -63,7 +79,7 @@ function App() {
     } finally {
       setAuthLoading(false);
     }
-  }, []);
+  }, [resetState]);
 
   const handleNotification = useCallback(() => {
     if (!("Notification" in window)) return;
@@ -89,6 +105,86 @@ function App() {
       setJobs(data);
     }
   }, [data, setJobs]);
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function hydrateJobState() {
+      if (!userId) {
+        resetState();
+        setStorageStatus("idle");
+        setStorageError(null);
+        return;
+      }
+
+      setStorageStatus("loading");
+      setStorageError(null);
+
+      try {
+        const persistedState = await getPersistedJobState();
+
+        if (isCancelled) {
+          return;
+        }
+
+        hydratePersistedState(persistedState);
+        setStorageStatus("ready");
+      } catch (error) {
+        if (isCancelled) {
+          return;
+        }
+
+        setStorageStatus("error");
+        setStorageError(
+          error instanceof Error
+            ? error.message
+            : "Unable to load your saved jobs",
+        );
+      }
+    }
+
+    void hydrateJobState();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [hydratePersistedState, resetState, userId]);
+
+  useEffect(() => {
+    if (!userId || storageStatus !== "ready") {
+      return;
+    }
+
+    let isCancelled = false;
+
+    async function persistJobState() {
+      try {
+        await savePersistedJobState({
+          savedIds,
+          appliedIds,
+          archivedIds,
+        });
+
+        if (!isCancelled) {
+          setStorageError(null);
+        }
+      } catch (error) {
+        if (!isCancelled) {
+          setStorageError(
+            error instanceof Error
+              ? error.message
+              : "Unable to save your saved jobs",
+          );
+        }
+      }
+    }
+
+    void persistJobState();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [appliedIds, archivedIds, savedIds, storageStatus, userId]);
 
   // Fetch periodically
   useEffect(() => {
@@ -123,8 +219,6 @@ function App() {
     }
 
     if ("Notification" in window) {
-      console.log("Notification permission:", Notification.permission);
-
       if (Notification.permission !== "granted") {
         requestNotificationPermission();
       }
@@ -143,6 +237,7 @@ function App() {
             <p className="text-red-500">{session.error.message}</p>
           ) : null}
           {authError ? <p className="text-red-500">{authError}</p> : null}
+          {storageError ? <p className="text-red-500">{storageError}</p> : null}
           <button
             className="cursor-pointer rounded border-1 border-transparent bg-white px-4 py-1 text-sm font-semibold text-blue-500 hover:text-blue-700"
             onClick={() => void handleGitHubLogin()}
@@ -171,6 +266,12 @@ function App() {
         </div>
       </header>
       {authError ? <p className="mt-4 text-red-500">{authError}</p> : null}
+      {storageStatus === "loading" ? (
+        <p className="mt-4 text-gray-400">Syncing your saved jobs...</p>
+      ) : null}
+      {storageError ? (
+        <p className="mt-4 text-red-500">{storageError}</p>
+      ) : null}
       <div className="mt-4 flex gap-4" aria-label="Job Tabs">
         {TAB_OPTIONS.map(({ key, tabLabel }) => (
           <button

@@ -1,6 +1,5 @@
 import type { Tab } from "./types";
 
-export const LOCAL_STORAGE_KEY = "adzunaIds";
 export const RESULTS_PER_PAGE = 100;
 export const PURGE_THRESHOLD = 1.5;
 

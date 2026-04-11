@@ -13,7 +13,7 @@
 - `src/hooks/useFetchJobs.ts` handles Adzuna fetches, derives `newId`, and deduplicates results before they enter the store.
 - `src/store/useStore.ts` is the source of truth for job buckets (`new`, `saved`, `applied`, `archived`) and current tab state.
 - Store behavior is project-specific: jobs are sorted with frontend-relevant roles first and then newest first; `setTab()` only switches derived `displayJobs`.
-- Persistence is ID-only and browser-local via OPFS, not regular `localStorage`; see `src/store/opfsAdapter.ts` and the `partialize` config in `src/store/useStore.ts`.
+- Persistence is ID-only and intended to be user-scoped in Neon via the Data API so the app remains compatible with GitHub Pages. Store hydration/sync should be orchestrated from `src/App.tsx` and `src/lib/jobStateApi.ts`.
 
 ## Build and Test
 
@@ -44,4 +44,4 @@
 
 - Treat all `VITE_*` values as client-exposed configuration, not secrets.
 - GitHub OAuth callback/origin settings must match local and deployed app URLs.
-- OPFS persistence stores saved/applied/archived IDs on-device only; avoid assuming server-side user persistence exists.
+- Treat all `VITE_*` values as client-exposed. Use Neon Data API + RLS for browser persistence; do not expose `DATABASE_URL` in this Vite app.

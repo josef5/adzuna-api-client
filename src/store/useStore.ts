@@ -1,11 +1,9 @@
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
-import { LOCAL_STORAGE_KEY, PURGE_THRESHOLD } from "../constants";
+import { PURGE_THRESHOLD } from "../constants";
 import { isFrontendJob } from "../lib/utils";
-import type { Job, Tab } from "../types";
-import { opfsStorage } from "./opfsAdapter";
+import type { Job, PersistedJobState, Tab } from "../types";
 
-interface Store {
+interface Store extends PersistedJobState {
   savedIds: string[];
   appliedIds: string[];
   archivedIds: string[];
@@ -23,6 +21,8 @@ interface Store {
 
   setJobs: (jobs: Job[]) => void;
   moveId: (type: Tab, id: string) => void;
+  hydratePersistedState: (state: PersistedJobState) => void;
+  resetState: () => void;
 
   tab: Tab;
   setTab: (tab: Tab) => void;
@@ -31,144 +31,167 @@ interface Store {
   purgeUnusedIds: (data: Job[]) => void;
 }
 
-export const useStore = create<Store>()(
-  persist(
-    (set, get) => ({
-      savedIds: [],
-      appliedIds: [],
-      archivedIds: [],
+function getAllJobs(
+  state: Pick<Store, "newJobs" | "savedJobs" | "appliedJobs" | "archivedJobs">,
+) {
+  return [
+    ...state.newJobs,
+    ...state.savedJobs,
+    ...state.appliedJobs,
+    ...state.archivedJobs,
+  ];
+}
 
-      newJobs: [],
-      savedJobs: [],
-      appliedJobs: [],
-      archivedJobs: [],
+function getInitialState(): Omit<
+  Store,
+  | "setSavedIds"
+  | "setAppliedIds"
+  | "setArchivedIds"
+  | "setJobs"
+  | "moveId"
+  | "hydratePersistedState"
+  | "resetState"
+  | "setTab"
+  | "purgeUnusedIds"
+> {
+  return {
+    savedIds: [],
+    appliedIds: [],
+    archivedIds: [],
 
-      displayJobs: [],
+    newJobs: [],
+    savedJobs: [],
+    appliedJobs: [],
+    archivedJobs: [],
 
-      tab: "new",
+    displayJobs: [],
 
-      setSavedIds: (ids) => set({ savedIds: ids }),
-      setAppliedIds: (ids) => set({ appliedIds: ids }),
-      setArchivedIds: (ids) => set({ archivedIds: ids }),
+    tab: "new",
+    showPurgeButton: false,
+  };
+}
 
-      setJobs: (jobs) => {
-        const { savedIds, appliedIds, archivedIds } = get();
-        const allStoredIds = [...savedIds, ...appliedIds, ...archivedIds];
+export const useStore = create<Store>()((set, get) => ({
+  ...getInitialState(),
 
-        const newJobs = jobs
-          .filter((job) => !allStoredIds.includes(job.newId))
-          .sort((a, b) => {
-            // Sort by frontend jobs first
-            const aFront = isFrontendJob(a.title) ? 1 : 0;
-            const bFront = isFrontendJob(b.title) ? 1 : 0;
-            if (aFront !== bFront) return bFront - aFront;
+  setSavedIds: (ids) => set({ savedIds: ids }),
+  setAppliedIds: (ids) => set({ appliedIds: ids }),
+  setArchivedIds: (ids) => set({ archivedIds: ids }),
 
-            // Then by date (newest first)
-            const getTime = (job: Job) => {
-              const d = job.created ?? "";
-              const t = Date.parse(d);
-              return Number.isNaN(t) ? 0 : t;
-            };
+  setJobs: (jobs) => {
+    const { savedIds, appliedIds, archivedIds } = get();
+    const allStoredIds = [...savedIds, ...appliedIds, ...archivedIds];
 
-            return getTime(b) - getTime(a);
-          });
+    const newJobs = jobs
+      .filter((job) => !allStoredIds.includes(job.newId))
+      .sort((a, b) => {
+        // Sort by frontend jobs first
+        const aFront = isFrontendJob(a.title) ? 1 : 0;
+        const bFront = isFrontendJob(b.title) ? 1 : 0;
+        if (aFront !== bFront) return bFront - aFront;
 
-        const savedJobs = jobs.filter((job) => savedIds.includes(job.newId));
-        const appliedJobs = jobs.filter((job) =>
-          appliedIds.includes(job.newId),
-        );
-        const archivedJobs = jobs.filter((job) =>
-          archivedIds.includes(job.newId),
-        );
+        // Then by date (newest first)
+        const getTime = (job: Job) => {
+          const d = job.created ?? "";
+          const t = Date.parse(d);
+          return Number.isNaN(t) ? 0 : t;
+        };
 
-        set({
-          newJobs,
-          savedJobs,
-          appliedJobs,
-          archivedJobs,
-          showPurgeButton: allStoredIds.length > jobs.length * PURGE_THRESHOLD,
-        });
+        return getTime(b) - getTime(a);
+      });
 
-        // Trigger update of displayJobs based on current tab
-        const { tab, setTab } = get();
-        setTab(tab);
-      },
+    const savedJobs = jobs.filter((job) => savedIds.includes(job.newId));
+    const appliedJobs = jobs.filter((job) => appliedIds.includes(job.newId));
+    const archivedJobs = jobs.filter((job) => archivedIds.includes(job.newId));
 
-      setTab: (tab) => {
-        const { newJobs, savedJobs, appliedJobs, archivedJobs } = get();
+    set({
+      newJobs,
+      savedJobs,
+      appliedJobs,
+      archivedJobs,
+      showPurgeButton: allStoredIds.length > jobs.length * PURGE_THRESHOLD,
+    });
 
-        let displayJobs: Job[] = [];
+    // Trigger update of displayJobs based on current tab
+    const { tab, setTab } = get();
+    setTab(tab);
+  },
 
-        switch (tab) {
-          case "new":
-            displayJobs = newJobs;
-            break;
-          case "saved":
-            displayJobs = savedJobs;
-            break;
-          case "applied":
-            displayJobs = appliedJobs;
-            break;
-          case "archived":
-            displayJobs = archivedJobs;
-            break;
-          default:
-            displayJobs = newJobs;
-            break;
-        }
-
-        set({ tab, displayJobs });
-      },
-
-      moveId: (type: Tab, id: string) => {
-        set((state) => {
-          let savedIds = state.savedIds.filter((x) => x !== id);
-          let appliedIds = state.appliedIds.filter((x) => x !== id);
-          let archivedIds = state.archivedIds.filter((x) => x !== id);
-
-          switch (type) {
-            case "saved":
-              savedIds = [...savedIds, id];
-              break;
-            case "applied":
-              appliedIds = [...appliedIds, id];
-              break;
-            case "archived":
-              archivedIds = [...archivedIds, id];
-              break;
-            default:
-              break;
-          }
-
-          return { savedIds, appliedIds, archivedIds };
-        });
-
-        const { setJobs, newJobs, savedJobs, appliedJobs, archivedJobs } =
-          get();
-        setJobs([...newJobs, ...savedJobs, ...appliedJobs, ...archivedJobs]);
-      },
-
+  hydratePersistedState: (state) => {
+    set({
+      savedIds: [...state.savedIds],
+      appliedIds: [...state.appliedIds],
+      archivedIds: [...state.archivedIds],
       showPurgeButton: false,
+    });
 
-      purgeUnusedIds: (jobs: Job[]) => {
-        const usedIds = new Set(jobs.map((job) => job.newId));
+    get().setJobs(getAllJobs(get()));
+  },
 
-        set((state) => ({
-          savedIds: state.savedIds.filter((id) => usedIds.has(id)),
-          appliedIds: state.appliedIds.filter((id) => usedIds.has(id)),
-          archivedIds: state.archivedIds.filter((id) => usedIds.has(id)),
-          showPurgeButton: false,
-        }));
-      },
-    }),
-    {
-      name: LOCAL_STORAGE_KEY,
-      storage: createJSONStorage(() => opfsStorage),
-      partialize: (state) => ({
-        savedIds: state.savedIds,
-        appliedIds: state.appliedIds,
-        archivedIds: state.archivedIds,
-      }),
-    },
-  ),
-);
+  resetState: () => {
+    set(getInitialState());
+  },
+
+  setTab: (tab) => {
+    const { newJobs, savedJobs, appliedJobs, archivedJobs } = get();
+
+    let displayJobs: Job[] = [];
+
+    switch (tab) {
+      case "new":
+        displayJobs = newJobs;
+        break;
+      case "saved":
+        displayJobs = savedJobs;
+        break;
+      case "applied":
+        displayJobs = appliedJobs;
+        break;
+      case "archived":
+        displayJobs = archivedJobs;
+        break;
+      default:
+        displayJobs = newJobs;
+        break;
+    }
+
+    set({ tab, displayJobs });
+  },
+
+  moveId: (type: Tab, id: string) => {
+    set((state) => {
+      let savedIds = state.savedIds.filter((x) => x !== id);
+      let appliedIds = state.appliedIds.filter((x) => x !== id);
+      let archivedIds = state.archivedIds.filter((x) => x !== id);
+
+      switch (type) {
+        case "saved":
+          savedIds = [...savedIds, id];
+          break;
+        case "applied":
+          appliedIds = [...appliedIds, id];
+          break;
+        case "archived":
+          archivedIds = [...archivedIds, id];
+          break;
+        default:
+          break;
+      }
+
+      return { savedIds, appliedIds, archivedIds };
+    });
+
+    get().setJobs(getAllJobs(get()));
+  },
+
+  purgeUnusedIds: (jobs: Job[]) => {
+    const usedIds = new Set(jobs.map((job) => job.newId));
+
+    set((state) => ({
+      savedIds: state.savedIds.filter((id) => usedIds.has(id)),
+      appliedIds: state.appliedIds.filter((id) => usedIds.has(id)),
+      archivedIds: state.archivedIds.filter((id) => usedIds.has(id)),
+      showPurgeButton: false,
+    }));
+  },
+}));

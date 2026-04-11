@@ -1,11 +1,24 @@
 /* @vitest-environment jsdom */
 
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "../App";
 import type { Job, Tab } from "../types";
 
-const { mockSignInSocial, mockSignOut } = vi.hoisted(() => ({
+const {
+  mockGetPersistedJobState,
+  mockSavePersistedJobState,
+  mockSignInSocial,
+  mockSignOut,
+} = vi.hoisted(() => ({
+  mockGetPersistedJobState: vi.fn(),
+  mockSavePersistedJobState: vi.fn(),
   mockSignInSocial: vi.fn(),
   mockSignOut: vi.fn(),
 }));
@@ -22,9 +35,14 @@ type StoreShape = {
   moveId: typeof mockMoveId;
   setTab: typeof mockSetTab;
   newJobs: Job[];
+  savedIds: string[];
+  appliedIds: string[];
+  archivedIds: string[];
   displayJobs: Job[];
   showPurgeButton: boolean;
   purgeUnusedIds: typeof mockPurgeUnusedIds;
+  hydratePersistedState: ReturnType<typeof vi.fn>;
+  resetState: ReturnType<typeof vi.fn>;
 };
 
 const mockStoreState: StoreShape = {
@@ -33,9 +51,14 @@ const mockStoreState: StoreShape = {
   moveId: mockMoveId,
   setTab: mockSetTab,
   newJobs: [],
+  savedIds: [],
+  appliedIds: [],
+  archivedIds: [],
   displayJobs: [],
   showPurgeButton: false,
   purgeUnusedIds: mockPurgeUnusedIds,
+  hydratePersistedState: vi.fn(),
+  resetState: vi.fn(),
 };
 
 const mockHookState: {
@@ -111,6 +134,11 @@ vi.mock("../lib/auth", () => ({
   },
 }));
 
+vi.mock("../lib/jobStateApi", () => ({
+  getPersistedJobState: mockGetPersistedJobState,
+  savePersistedJobState: mockSavePersistedJobState,
+}));
+
 function makeJob(overrides: Partial<Job>): Job {
   return {
     id: overrides.id ?? "job-id-1",
@@ -141,12 +169,29 @@ describe("App", () => {
 
     mockStoreState.tab = "new";
     mockStoreState.newJobs = [];
+    mockStoreState.savedIds = [];
+    mockStoreState.appliedIds = [];
+    mockStoreState.archivedIds = [];
     mockStoreState.displayJobs = [];
     mockStoreState.showPurgeButton = false;
+    mockStoreState.hydratePersistedState.mockReset();
+    mockStoreState.resetState.mockReset();
 
     mockHookState.data = null;
     mockHookState.loading = false;
     mockHookState.error = null;
+    mockGetPersistedJobState.mockReset();
+    mockSavePersistedJobState.mockReset();
+    mockGetPersistedJobState.mockResolvedValue({
+      savedIds: [],
+      appliedIds: [],
+      archivedIds: [],
+    });
+    mockSavePersistedJobState.mockResolvedValue({
+      savedIds: [],
+      appliedIds: [],
+      archivedIds: [],
+    });
 
     mockAuthState.data = {
       user: {
@@ -192,6 +237,25 @@ describe("App", () => {
     );
   });
 
+  it("hydrates Neon storage after sign in", async () => {
+    mockGetPersistedJobState.mockResolvedValue({
+      savedIds: ["saved-1"],
+      appliedIds: ["applied-1"],
+      archivedIds: ["archived-1"],
+    });
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(mockGetPersistedJobState).toHaveBeenCalledTimes(1);
+      expect(mockStoreState.hydratePersistedState).toHaveBeenCalledWith({
+        savedIds: ["saved-1"],
+        appliedIds: ["applied-1"],
+        archivedIds: ["archived-1"],
+      });
+    });
+  });
+
   it("shows loading message when loading and no display jobs", () => {
     mockHookState.loading = true;
 
@@ -231,11 +295,14 @@ describe("App", () => {
     expect(screen.getByText("View Job")).toBeTruthy();
   });
 
-  it("sign out button triggers auth sign out", () => {
+  it("sign out button triggers auth sign out and clears the store", async () => {
     render(<App />);
 
     fireEvent.click(screen.getByText("Sign out"));
 
-    expect(mockSignOut).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(mockSignOut).toHaveBeenCalledTimes(1);
+      expect(mockStoreState.resetState).toHaveBeenCalledTimes(1);
+    });
   });
 });

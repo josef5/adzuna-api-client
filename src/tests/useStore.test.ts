@@ -1,7 +1,7 @@
 /* @vitest-environment jsdom */
 
 import { beforeEach, describe, expect, it } from "vitest";
-import type { Job } from "../types";
+import type { Job, PersistedJobState } from "../types";
 import { useStore } from "../store/useStore";
 
 const initialState = useStore.getState();
@@ -23,7 +23,6 @@ function makeJob(overrides: Partial<Job>): Job {
 describe("useStore", () => {
   beforeEach(() => {
     useStore.setState(initialState, true);
-    localStorage.clear();
   });
 
   it("sets and sorts new jobs by frontend-first then newest date", () => {
@@ -106,5 +105,51 @@ describe("useStore", () => {
     expect(useStore.getState().appliedIds).toEqual(["keep-applied"]);
     expect(useStore.getState().archivedIds).toEqual([]);
     expect(useStore.getState().showPurgeButton).toBe(false);
+  });
+
+  it("hydrates persisted ids and reclassifies existing jobs", () => {
+    const jobs = [
+      makeJob({ id: "1", newId: "saved-job" }),
+      makeJob({ id: "2", newId: "applied-job" }),
+      makeJob({ id: "3", newId: "archived-job" }),
+      makeJob({ id: "4", newId: "new-job" }),
+    ];
+    const persistedState: PersistedJobState = {
+      savedIds: ["saved-job"],
+      appliedIds: ["applied-job"],
+      archivedIds: ["archived-job"],
+    };
+
+    useStore.getState().setJobs(jobs);
+    useStore.getState().hydratePersistedState(persistedState);
+
+    expect(useStore.getState().savedJobs.map((job) => job.newId)).toEqual([
+      "saved-job",
+    ]);
+    expect(useStore.getState().appliedJobs.map((job) => job.newId)).toEqual([
+      "applied-job",
+    ]);
+    expect(useStore.getState().archivedJobs.map((job) => job.newId)).toEqual([
+      "archived-job",
+    ]);
+    expect(useStore.getState().newJobs.map((job) => job.newId)).toEqual([
+      "new-job",
+    ]);
+  });
+
+  it("resetState clears ids and derived job lists", () => {
+    const job = makeJob({ id: "1", newId: "job-1" });
+
+    useStore.getState().setJobs([job]);
+    useStore.getState().moveId("saved", "job-1");
+    useStore.getState().setTab("saved");
+    useStore.getState().resetState();
+
+    expect(useStore.getState().savedIds).toEqual([]);
+    expect(useStore.getState().appliedIds).toEqual([]);
+    expect(useStore.getState().archivedIds).toEqual([]);
+    expect(useStore.getState().savedJobs).toEqual([]);
+    expect(useStore.getState().displayJobs).toEqual([]);
+    expect(useStore.getState().tab).toBe("new");
   });
 });

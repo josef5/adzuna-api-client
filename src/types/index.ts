@@ -11,3 +11,9 @@ export type Job = {
 };
 
 export type Tab = "new" | "saved" | "applied" | "archived";
+
+export type PersistedJobState = {
+  savedIds: string[];
+  appliedIds: string[];
+  archivedIds: string[];
+};
