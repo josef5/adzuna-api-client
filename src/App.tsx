@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { TAB_OPTIONS } from "./constants";
 import { useFetchJobs } from "./hooks/useFetchJobs";
+import { authClient } from "./lib/auth";
 import { isFrontendJob } from "./lib/utils";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
@@ -15,14 +16,54 @@ function App() {
   const displayJobs = useStore((state) => state.displayJobs);
   const showPurgeButton = useStore((state) => state.showPurgeButton);
   const purgeUnusedIds = useStore((state) => state.purgeUnusedIds);
-  const { data, fetchData, loading, error } = useFetchJobs();
+  const session = authClient.useSession();
+  const isAuthenticated = Boolean(session.data?.user);
+  const { data, fetchData, loading, error } = useFetchJobs(isAuthenticated);
   const [lastFetchDate, setLastFetchDate] = useState<Date | null>(new Date());
+  const [authLoading, setAuthLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const handleRefresh = useCallback(() => {
+    if (!isAuthenticated) {
+      return;
+    }
+
     fetchData();
     setLastFetchDate(new Date());
     setTab("new");
-  }, [fetchData, setTab]);
+  }, [fetchData, isAuthenticated, setTab]);
+
+  const handleGitHubLogin = useCallback(async () => {
+    setAuthLoading(true);
+    setAuthError(null);
+
+    try {
+      await authClient.signIn.social({
+        provider: "github",
+        callbackURL: `${window.location.origin}${window.location.pathname}${window.location.search}`,
+      });
+    } catch (error) {
+      setAuthError(
+        error instanceof Error ? error.message : "Unable to log in with GitHub",
+      );
+      setAuthLoading(false);
+    }
+  }, []);
+
+  const handleSignOut = useCallback(async () => {
+    setAuthLoading(true);
+    setAuthError(null);
+
+    try {
+      await authClient.signOut();
+    } catch (error) {
+      setAuthError(
+        error instanceof Error ? error.message : "Unable to sign out",
+      );
+    } finally {
+      setAuthLoading(false);
+    }
+  }, []);
 
   const handleNotification = useCallback(() => {
     if (!("Notification" in window)) return;
@@ -51,6 +92,10 @@ function App() {
 
   // Fetch periodically
   useEffect(() => {
+    if (!isAuthenticated) {
+      return;
+    }
+
     const interval = setInterval(
       async function () {
         setTab("new");
@@ -63,10 +108,14 @@ function App() {
     );
 
     return () => clearInterval(interval);
-  }, [fetchData, setTab, handleNotification]);
+  }, [fetchData, isAuthenticated, setTab, handleNotification]);
 
   // Request notification permission on mount
   useEffect(() => {
+    if (!isAuthenticated) {
+      return;
+    }
+
     async function requestNotificationPermission() {
       if (Notification.requestPermission.length === 0) {
         await Notification.requestPermission();
@@ -80,22 +129,26 @@ function App() {
         requestNotificationPermission();
       }
     }
-  }, []);
+  }, [isAuthenticated]);
 
-  const auth = false; // Placeholder for authentication logic
-
-  if (!auth) {
+  if (!isAuthenticated) {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Adzuna Frontend Developer Jobs in London</h1>
         </header>
-        <div className="mt-4 text-gray-400">
+        <div className="mt-4 space-y-3 text-gray-400">
+          {session.isPending ? <p>Checking session...</p> : null}
+          {session.error ? (
+            <p className="text-red-500">{session.error.message}</p>
+          ) : null}
+          {authError ? <p className="text-red-500">{authError}</p> : null}
           <button
             className="cursor-pointer rounded border-1 border-transparent bg-white px-4 py-1 text-sm font-semibold text-blue-500 hover:text-blue-700"
-            onClick={() => alert("Login functionality not implemented")}
+            onClick={() => void handleGitHubLogin()}
+            disabled={authLoading || session.isPending}
           >
-            Log in with GitHub
+            {authLoading ? "Signing in..." : "Log in with GitHub"}
           </button>
         </div>
       </div>
@@ -104,9 +157,20 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header flex items-center justify-between gap-4">
         <h1>Adzuna Frontend Developer Jobs in London</h1>
+        <div className="flex items-center gap-3 text-sm text-gray-300">
+          <span>{session.data?.user.name ?? session.data?.user.email}</span>
+          <button
+            className="cursor-pointer rounded border border-gray-500 px-3 py-1 text-gray-200 hover:border-white hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+            onClick={() => void handleSignOut()}
+            disabled={authLoading}
+          >
+            {authLoading ? "Signing out..." : "Sign out"}
+          </button>
+        </div>
       </header>
+      {authError ? <p className="mt-4 text-red-500">{authError}</p> : null}
       <div className="mt-4 flex gap-4" aria-label="Job Tabs">
         {TAB_OPTIONS.map(({ key, tabLabel }) => (
           <button

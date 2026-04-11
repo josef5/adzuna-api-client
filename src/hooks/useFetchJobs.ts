@@ -6,7 +6,7 @@ type ApiResponse = {
   results: Job[];
 };
 
-export function useFetchJobs() {
+export function useFetchJobs(enabled = true) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<Job[] | null>(null);
@@ -14,6 +14,13 @@ export function useFetchJobs() {
   const jobLocation = "London";
 
   const fetchData = useCallback(async () => {
+    if (!enabled) {
+      setLoading(false);
+      setError(null);
+      setData(null);
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -48,12 +55,19 @@ export function useFetchJobs() {
     } finally {
       setLoading(false);
     }
-  }, [jobTitle, jobLocation]);
+  }, [enabled, jobTitle, jobLocation]);
 
   // Initial fetch
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    if (enabled) {
+      fetchData();
+      return;
+    }
+
+    setLoading(false);
+    setError(null);
+    setData(null);
+  }, [enabled, fetchData]);
 
   return {
     data,
