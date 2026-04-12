@@ -79,13 +79,12 @@ export function useFetchJobs(enabled = true) {
 
 function addNewIds(jobs: Job[]): Job[] {
   return jobs.map((job) => {
-    const title = job.title ?? "";
-    const company = job.company?.display_name ?? "";
-    const location = job.location?.display_name ?? "";
+    const title = job.title?.toLocaleLowerCase() ?? "";
+    const company = job.company?.display_name?.toLocaleLowerCase() ?? "";
 
     return {
       ...job,
-      newId: `${title.trim().replace(/\s+/g, "-")}-${company.trim().replace(/\s+/g, "-")}-${location.trim().replace(/\s+/g, "-")}`,
+      newId: `${title.trim().replace(/\s+/g, "-")}-${company.trim().replace(/\s+/g, "-")}`,
     };
   });
 }

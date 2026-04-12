@@ -28,7 +28,7 @@
 
 ## Project Conventions
 
-- Job identity is `job.newId`, not the API `id`; `newId` is derived from title/company/location in `src/hooks/useFetchJobs.ts`.
+- Job identity is `job.newId`, not the API `id`; `newId` is derived from title/company in `src/hooks/useFetchJobs.ts`.
 - Frontend relevance is keyword-based via `isFrontendJob()` in `src/lib/utils.ts`; preserve that heuristic unless the user asks to change ranking/filtering behavior.
 - Tabs come from `TAB_OPTIONS`; use those labels/actions rather than duplicating UI text.
 - DOM tests explicitly opt into jsdom per file; Vitest defaults to `node` in `vite.config.ts`.
