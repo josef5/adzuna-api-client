@@ -46,12 +46,8 @@ describe("useFetchJobs", () => {
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(result.current.error).toBeNull();
-    expect(result.current.data?.[0].newId).toBe(
-      "Frontend-Developer-Tech-Co-London",
-    );
-    expect(result.current.data?.[1].newId).toBe(
-      "Backend-Engineer-Infra-Co-London",
-    );
+    expect(result.current.data?.[0].newId).toBe("frontend-developer-tech-co");
+    expect(result.current.data?.[1].newId).toBe("backend-engineer-infra-co");
   });
 
   it("sets error when network response is not ok", async () => {
