@@ -256,6 +256,22 @@ describe("App", () => {
     });
   });
 
+  it("shows a helpful message when Neon Data API is disabled", async () => {
+    mockGetPersistedJobState.mockRejectedValue(
+      new Error("The data api is not enabled for this endpoint."),
+    );
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          "Neon Data API is disabled for this branch. Enable Data API in Neon Console and try again.",
+        ),
+      ).toBeTruthy();
+    });
+  });
+
   it("shows loading message when loading and no display jobs", () => {
     mockHookState.loading = true;
 

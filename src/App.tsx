@@ -8,6 +8,70 @@ import { isFrontendJob } from "./lib/utils";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
 
+function decodeJwtPayload(token: string | undefined) {
+  if (!token) {
+    return null;
+  }
+
+  const segments = token.split(".");
+
+  if (segments.length < 2) {
+    return null;
+  }
+
+  try {
+    const normalized = segments[1].replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const payload = atob(padded);
+    return JSON.parse(payload) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+function getStorageUserId(
+  token: string | undefined,
+  fallbackUserId: string | null,
+) {
+  const payload = decodeJwtPayload(token);
+  const nestedUser =
+    payload?.user && typeof payload.user === "object"
+      ? (payload.user as Record<string, unknown>)
+      : null;
+
+  const claimCandidates = [
+    payload?.user_id,
+    payload?.userId,
+    nestedUser?.id,
+    payload?.id,
+    payload?.sub,
+    fallbackUserId,
+  ];
+
+  const resolvedClaim = claimCandidates.find(
+    (claim): claim is string => typeof claim === "string" && claim.length > 0,
+  );
+
+  return resolvedClaim ?? null;
+}
+
+function formatStorageError(error: unknown, fallbackMessage: string) {
+  const rawMessage =
+    error instanceof Error
+      ? error.message
+      : typeof error === "string"
+        ? error
+        : fallbackMessage;
+
+  const normalizedMessage = rawMessage.toLowerCase();
+
+  if (normalizedMessage.includes("data api is not enabled for this endpoint")) {
+    return "Neon Data API is disabled for this branch. Enable Data API in Neon Console and try again.";
+  }
+
+  return rawMessage;
+}
+
 function App() {
   const setJobs = useStore((state) => state.setJobs);
   const tab = useStore((state) => state.tab);
@@ -26,6 +90,7 @@ function App() {
   const resetState = useStore((state) => state.resetState);
   const session = authClient.useSession();
   const userId = session.data?.user.id ?? null;
+  const storageUserId = getStorageUserId(session.data?.session.token, userId);
   const isAuthenticated = Boolean(userId);
   const { data, fetchData, loading, error } = useFetchJobs(isAuthenticated);
   const [lastFetchDate, setLastFetchDate] = useState<Date | null>(new Date());
@@ -120,8 +185,14 @@ function App() {
       setStorageStatus("loading");
       setStorageError(null);
 
+      if (!storageUserId) {
+        setStorageStatus("error");
+        setStorageError("Unable to determine authenticated storage user id.");
+        return;
+      }
+
       try {
-        const persistedState = await getPersistedJobState();
+        const persistedState = await getPersistedJobState(storageUserId);
 
         if (isCancelled) {
           return;
@@ -136,9 +207,7 @@ function App() {
 
         setStorageStatus("error");
         setStorageError(
-          error instanceof Error
-            ? error.message
-            : "Unable to load your saved jobs",
+          formatStorageError(error, "Unable to load your saved jobs"),
         );
       }
     }
@@ -148,22 +217,27 @@ function App() {
     return () => {
       isCancelled = true;
     };
-  }, [hydratePersistedState, resetState, userId]);
+  }, [hydratePersistedState, resetState, storageUserId, userId]);
 
   useEffect(() => {
-    if (!userId || storageStatus !== "ready") {
+    if (!storageUserId || storageStatus !== "ready") {
       return;
     }
+
+    const scopedStorageUserId = storageUserId;
 
     let isCancelled = false;
 
     async function persistJobState() {
       try {
-        await savePersistedJobState({
-          savedIds,
-          appliedIds,
-          archivedIds,
-        });
+        await savePersistedJobState(
+          {
+            savedIds,
+            appliedIds,
+            archivedIds,
+          },
+          scopedStorageUserId,
+        );
 
         if (!isCancelled) {
           setStorageError(null);
@@ -171,9 +245,7 @@ function App() {
       } catch (error) {
         if (!isCancelled) {
           setStorageError(
-            error instanceof Error
-              ? error.message
-              : "Unable to save your saved jobs",
+            formatStorageError(error, "Unable to save your saved jobs"),
           );
         }
       }
@@ -184,7 +256,7 @@ function App() {
     return () => {
       isCancelled = true;
     };
-  }, [appliedIds, archivedIds, savedIds, storageStatus, userId]);
+  }, [appliedIds, archivedIds, savedIds, storageStatus, storageUserId]);
 
   // Fetch periodically
   useEffect(() => {
