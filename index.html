@@ -4,10 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adzuna Frontend Developer Jobs in London</title>
-    <script type="module" crossorigin src="/adzuna-api-client/assets/index-CRAz73Ii.js"></script>
-    <link rel="stylesheet" crossorigin href="/adzuna-api-client/assets/index-BmQBUoFP.css">
+    <style>
+      :root {
+        font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        font-weight: 400;
+        color-scheme: light dark;
+        color: rgba(255, 255, 255, 0.87);
+        background-color: #242424;
+      }
+
+      body {
+        margin: 0;
+        background-color: #242424;
+      }
+
+      #oauth-callback-loader {
+        display: none;
+        min-height: 100vh;
+        align-items: flex-start;
+        justify-content: flex-start;
+        color: rgba(255, 255, 255, 0.87);
+        padding: 2rem;
+      }
+    </style>
+    <script type="module" crossorigin src="/adzuna-api-client/assets/index-7e8qSgCC.js"></script>
+    <link rel="stylesheet" crossorigin href="/adzuna-api-client/assets/index-D5uIcvM0.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="oauth-callback-loader">Signing you in...</div>
+    </div>
+    <script>
+      const searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.has("neon_auth_session_verifier")) {
+        const callbackLoader = document.getElementById("oauth-callback-loader");
+
+        if (callbackLoader) {
+          callbackLoader.style.display = "flex";
+        }
+      }
+    </script>
   </body>
 </html>
