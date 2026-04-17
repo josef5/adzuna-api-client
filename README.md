@@ -10,6 +10,8 @@ npm run dev
 
 This app uses Neon Auth with GitHub OAuth in the browser.
 
+Production OAuth must run on HTTPS. Plain `http://` only works for localhost during development, so if you deploy with GitHub Pages or a custom domain make sure HTTPS is enabled and use the HTTPS site URL in your auth settings.
+
 Required environment variables:
 
 - `VITE_NEON_AUTH_URL`
@@ -19,6 +21,16 @@ Required environment variables:
 - `VITE_APP_KEY`
 
 For local development, configure GitHub OAuth in Neon to allow your local Vite origin and callback URL.
+
+### Neon Auth checklist (local + production)
+
+If sign-in works in one environment but fails in another, verify:
+
+- **Allow Localhost** is enabled in Neon while developing locally (`npm run dev`).
+- **Trusted Origins** include your local Vite origin (for example `http://localhost:5173`) and your production HTTPS origin.
+- **Callback URL** values match exactly across Neon/GitHub OAuth (including trailing slash behavior).
+
+If you disable **Allow Localhost** for production hardening, remember to re-enable it before local development.
 
 ## Neon Persistence
 
