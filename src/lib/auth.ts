@@ -109,3 +109,50 @@ export const neonClient = createClient<NeonDatabase>({
 });
 
 export const authClient = neonClient.auth;
+
+export function decodeJwtPayload(token: string | undefined) {
+  if (!token) {
+    return null;
+  }
+
+  const segments = token.split(".");
+
+  if (segments.length < 2) {
+    return null;
+  }
+
+  try {
+    const normalized = segments[1].replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const payload = atob(padded);
+    return JSON.parse(payload) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+export function getStorageUserId(
+  token: string | undefined,
+  fallbackUserId: string | null,
+) {
+  const payload = decodeJwtPayload(token);
+  const nestedUser =
+    payload?.user && typeof payload.user === "object"
+      ? (payload.user as Record<string, unknown>)
+      : null;
+
+  const claimCandidates = [
+    payload?.user_id,
+    payload?.userId,
+    nestedUser?.id,
+    payload?.id,
+    payload?.sub,
+    fallbackUserId,
+  ];
+
+  const resolvedClaim = claimCandidates.find(
+    (claim): claim is string => typeof claim === "string" && claim.length > 0,
+  );
+
+  return resolvedClaim ?? null;
+}

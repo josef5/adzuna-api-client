@@ -2,75 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { TAB_OPTIONS } from "./constants";
 import { useFetchJobs } from "./hooks/useFetchJobs";
-import { authClient } from "./lib/auth";
+import { authClient, getStorageUserId } from "./lib/auth";
 import { getPersistedJobState, savePersistedJobState } from "./lib/jobStateApi";
-import { isFrontendJob } from "./lib/utils";
+import { isFrontendJob, formatStorageError } from "./lib/utils";
 import { useStore } from "./store/useStore";
 import type { Tab } from "./types";
-
-function decodeJwtPayload(token: string | undefined) {
-  if (!token) {
-    return null;
-  }
-
-  const segments = token.split(".");
-
-  if (segments.length < 2) {
-    return null;
-  }
-
-  try {
-    const normalized = segments[1].replace(/-/g, "+").replace(/_/g, "/");
-    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
-    const payload = atob(padded);
-    return JSON.parse(payload) as Record<string, unknown>;
-  } catch {
-    return null;
-  }
-}
-
-function getStorageUserId(
-  token: string | undefined,
-  fallbackUserId: string | null,
-) {
-  const payload = decodeJwtPayload(token);
-  const nestedUser =
-    payload?.user && typeof payload.user === "object"
-      ? (payload.user as Record<string, unknown>)
-      : null;
-
-  const claimCandidates = [
-    payload?.user_id,
-    payload?.userId,
-    nestedUser?.id,
-    payload?.id,
-    payload?.sub,
-    fallbackUserId,
-  ];
-
-  const resolvedClaim = claimCandidates.find(
-    (claim): claim is string => typeof claim === "string" && claim.length > 0,
-  );
-
-  return resolvedClaim ?? null;
-}
-
-function formatStorageError(error: unknown, fallbackMessage: string) {
-  const rawMessage =
-    error instanceof Error
-      ? error.message
-      : typeof error === "string"
-        ? error
-        : fallbackMessage;
-
-  const normalizedMessage = rawMessage.toLowerCase();
-
-  if (normalizedMessage.includes("data api is not enabled for this endpoint")) {
-    return "Neon Data API is disabled for this branch. Enable Data API in Neon Console and try again.";
-  }
-
-  return rawMessage;
-}
 
 function App() {
   const setJobs = useStore((state) => state.setJobs);
