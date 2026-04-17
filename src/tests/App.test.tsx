@@ -14,11 +14,13 @@ import type { Job, Tab } from "../types";
 const {
   mockGetPersistedJobState,
   mockSavePersistedJobState,
+  mockGetStorageUserId,
   mockSignInSocial,
   mockSignOut,
 } = vi.hoisted(() => ({
   mockGetPersistedJobState: vi.fn(),
   mockSavePersistedJobState: vi.fn(),
+  mockGetStorageUserId: vi.fn(),
   mockSignInSocial: vi.fn(),
   mockSignOut: vi.fn(),
 }));
@@ -132,6 +134,7 @@ vi.mock("../lib/auth", () => ({
     },
     signOut: mockSignOut,
   },
+  getStorageUserId: mockGetStorageUserId,
 }));
 
 vi.mock("../lib/jobStateApi", () => ({
@@ -164,6 +167,7 @@ describe("App", () => {
     mockSetTab.mockReset();
     mockPurgeUnusedIds.mockReset();
     mockFetchData.mockReset();
+    mockGetStorageUserId.mockReset();
     mockSignInSocial.mockReset();
     mockSignOut.mockReset();
 
@@ -210,6 +214,8 @@ describe("App", () => {
     };
     mockAuthState.isPending = false;
     mockAuthState.error = null;
+
+    mockGetStorageUserId.mockReturnValue("user-1");
 
     vi.stubGlobal("Notification", {
       permission: "default",
@@ -265,9 +271,7 @@ describe("App", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(
-          "Neon Data API is disabled for this branch. Enable Data API in Neon Console and try again.",
-        ),
+        screen.getByText("The data api is not enabled for this endpoint."),
       ).toBeTruthy();
     });
   });
